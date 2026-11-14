@@ -1,0 +1,41 @@
+---
+title: How this site is built
+description: A tour of the moving parts — the content collections, the components, and why each piece exists.
+pubDate: 2026-11-08
+tags:
+  - meta
+  - tech
+---
+
+import ExpandableTerm from '../../components/ExpandableTerm.astro';
+
+This post is a working example of the site's own features, so you can see how
+they behave before writing your own.
+
+A technical term can open into a short explanation without sending the
+reader away to a glossary page:
+
+<ExpandableTerm term="phasor measurement unit">
+A device that timestamps voltage and current waveforms against a common
+time reference, so the network's state can be measured directly rather than
+inferred from models.
+</ExpandableTerm>
+
+## The content collections
+
+Posts live in `src/content/blog/`, projects in `src/content/projects/`. Both
+are validated by a schema at build time, which means a typo in a field name
+fails the build with a clear message instead of quietly rendering a broken
+page.
+
+## The components
+
+`ProjectCard`, `BlogCard`, `VideoEmbed`, `EmbedFrame`, and `ExpandableTerm`
+each live in `src/components/`. A component is a `.astro` file with a `Props`
+interface — the props are the contract between the page and the component.
+
+## The embeds
+
+Interactive things — a game, a chart — are separate repositories published by
+GitHub Pages at `/<repo-name>/` under this site's domain. The page just
+iframes them. The game code never needs to know this site exists.

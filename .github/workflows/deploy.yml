@@ -1,0 +1,70 @@
+name: Deploy site to Pages
+
+# The site is a static Astro build. Every push to the default branch
+# rebuilds it and publishes it to GitHub Pages.
+#
+# One value depends on where the site is published: the canonical origin,
+# which drives every absolute URL in the output — <link rel="canonical">,
+# the og:url social tag, and the item links in rss.xml. It comes from
+# SITE_URL, set in repository settings (Settings → Secrets and variables →
+# Actions → Variables), with a fallback that works for local builds.
+#
+# The map, the games and the other embeds live in their OWN repositories
+# and are published by their own Pages deployments. A change to the map's
+# data never rebuilds this site.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time. A newer push supersedes an in-flight one rather
+# than racing it.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Astro 6.4.8 needs Node >= 22.12, and the pinned @astrojs/prism
+          # and @astrojs/telemetry raise that to >= 22.22.
+          node-version: '22.22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://swan-eternal.github.io' }}
+          # Only needed if this site is ever published as a PROJECT repo
+          # (where it would be served from a subdirectory). A user site
+          # named <handle>.github.io is served from the root.
+          BASE_PATH: ${{ vars.BASE_PATH || '/' }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

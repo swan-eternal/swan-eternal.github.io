@@ -1,0 +1,107 @@
+---
+/**
+ * Full project archive — every project, grouped by kind.
+ *
+ * The homepage shows two curated grids. This page is the exhaustive list, the
+ * "see all projects" link from ncase.me. Useful once the project count
+ * outgrows the grid.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = await getCollection('projects');
+
+const groups = [
+  {
+    label: 'Games',
+    kinds: ['game'],
+  },
+  {
+    label: 'Interactive',
+    kinds: ['interactive'],
+  },
+  {
+    label: 'Software',
+    kinds: ['software'],
+  },
+  {
+    label: 'Physical',
+    kinds: ['physical'],
+  },
+].map((group) => ({
+  ...group,
+  projects: projects
+    .filter((p) => group.kinds.includes(p.data.kind))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+}));
+---
+
+<BaseLayout
+  title="Projects"
+  description="Every project — games, interactive experiments, software, and physical builds."
+>
+  <h1>Projects</h1>
+  <p class="lede">
+    Games, interactive experiments, software, and physical builds. Newest
+    first.
+  </p>
+
+  {
+    groups
+      .filter((group) => group.projects.length > 0)
+      .map((group) => (
+        <section>
+          <h2 class="section-title">{group.label}</h2>
+          <ul class="list">
+            {group.projects.map((project) => (
+              <li>
+                <a href={`/projects/${project.id.replace(/\.md$/, '')}/`}>
+                  <span class="name">{project.data.title}</span>
+                  <span class="pitch">{project.data.description}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+  }
+</BaseLayout>
+
+<style>
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list li {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .list li:last-child {
+    border-bottom: 0;
+  }
+
+  .list a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    padding: 0.65rem 0;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .name {
+    font-weight: 600;
+  }
+
+  .pitch {
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+
+  .list a:hover .name {
+    color: var(--accent);
+  }
+</style>

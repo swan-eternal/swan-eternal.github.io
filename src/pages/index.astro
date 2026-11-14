@@ -1,0 +1,107 @@
+---
+/**
+ * Homepage.
+ *
+ * Two separate grids, not one mixed list — borrowed straight from ncase.me,
+ * which splits "SHTUFF YOU CAN PLAY" from "SHTUFF YOU CAN READ". The split
+ * is doing real work here: a visitor can tell within one glance whether
+ * this site has things to click or things to read.
+ *
+ * Sections:
+ *   1. "Things you can play"  -> games + interactive apps/vizzes
+ *   2. "Things I've built"     -> software + physical projects
+ *   3. "Things you can read"  -> recent blog posts
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const projects = await getCollection('projects');
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+// --- Section 1: playable -------------------------------------------------
+const playable = projects
+  .filter((p) => p.data.kind === 'game' || p.data.kind === 'interactive')
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// --- Section 2: built -----------------------------------------------------
+const built = projects
+  .filter((p) => p.data.kind === 'software' || p.data.kind === 'physical')
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// --- Section 3: reading ---------------------------------------------------
+const recentPosts = posts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+---
+
+<BaseLayout
+  title="Home"
+  description="Jason Swan — engineer, game developer, and tinkerer. Projects, writing, and interactive experiments."
+>
+  <h1>Jason Swan</h1>
+  <p class="lede">
+    Engineer by day, game developer and tinkerer by night. This is where the
+    projects live, the writing goes, and the small experiments sit.
+  </p>
+
+  {
+    playable.length > 0 && (
+      <>
+        <h2 class="section-title">Things you can play</h2>
+        <div class="grid">
+          {playable.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      </>
+    )
+  }
+
+  {
+    built.length > 0 && (
+      <>
+        <h2 class="section-title">Things I've built</h2>
+        <div class="grid">
+          {built.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      </>
+    )
+  }
+
+  {
+    recentPosts.length > 0 && (
+      <>
+        <h2 class="section-title">Things you can read</h2>
+        <div class="posts">
+          {recentPosts.map((post) => (
+            <BlogCard post={post} />
+          ))}
+        </div>
+        <p class="page-nav">
+          <a href="/blog">All writing &rarr;</a>
+        </p>
+      </>
+    )
+  }
+
+  <p class="page-nav">
+    <a href="/projects">All projects &rarr;</a>
+  </p>
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

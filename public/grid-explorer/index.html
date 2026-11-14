@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grid explorer — stub</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #10140f; color: #e9e9ec;
+    font-family: ui-sans-serif, system-ui, sans-serif; overflow: hidden; }
+  canvas { display: block; }
+  #tag { position: fixed; bottom: 8px; right: 12px; font-size: 11px; opacity: .5; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="tag">stub — real build replaces this at /grid-explorer/</div>
+<script>
+/**
+ * Placeholder sandbox, served at /grid-explorer/ so the path matches where
+ * the real repo's GitHub Pages site will live.
+ *
+ * Click to toggle cells, then watch the network settle. Deliberately dumb:
+ * it exists so the embed on the project page isn't a dead box, and to
+ * exercise the same IS_IN_SIGHT pause contract as the other two stubs.
+ */
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const N = 14;
+const cell = 34;
+const grid = Array.from({ length: N }, () => new Array(N).fill(false));
+
+function resize() {
+  canvas.width = canvas.clientWidth = window.innerWidth;
+  canvas.height = canvas.clientHeight = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+canvas.addEventListener('pointerdown', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const gx = Math.floor((e.clientX - rect.left) / cell);
+  const gy = Math.floor((e.clientY - rect.top) / cell);
+  if (gx < 0 || gy < 0 || gx >= N || gy >= N) return;
+  grid[gy][gx] = !grid[gy][gx];
+});
+
+// A trivial relaxation pass: lit cells pull their neighbours toward them.
+function settle() {
+  for (let pass = 0; pass < 2; pass++) {
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        let lit = 0;
+        for (const [dx, dy] of [[1,0],[-1,0],[0,1],[0,-1]]) {
+          const nx = x + dx, ny = y + dy;
+          if (nx >= 0 && ny >= 0 && nx < N && ny < N && grid[ny][nx]) lit++;
+        }
+        if (!grid[y][x] && lit >= 3) grid[y][x] = true;
+        if (grid[y][x] && lit === 0) grid[y][x] = false;
+      }
+    }
+  }
+}
+
+function draw(t) {
+  ctx.fillStyle = '#10140f';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const ox = (canvas.width - N * cell) / 2;
+  const oy = (canvas.height - N * cell) / 2;
+
+  for (let y = 0; y < N; y++) {
+    for (let x = 0; x < N; x++) {
+      const pulse = grid[y][x] ? 0.55 + 0.45 * Math.sin(t * 2 + (x + y) * 0.4) : 0;
+      ctx.fillStyle = grid[y][x]
+        ? `rgba(140, 220, 150, ${pulse})`
+        : 'rgba(255,255,255,0.05)';
+      ctx.fillRect(ox + x * cell + 1, oy + y * cell + 1, cell - 2, cell - 2);
+    }
+  }
+  requestAnimationFrame(draw);
+}
+
+/* The pause contract: the parent page tells us when we're on screen. */
+window.IS_IN_SIGHT = true;
+function frame() {
+  if (window.IS_IN_SIGHT) requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+setInterval(settle, 400);
+</script>
+</body>
+</html>

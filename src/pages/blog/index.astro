@@ -1,0 +1,42 @@
+---
+/**
+ * Blog index — every post, newest first.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Writing about games, tools, hardware, and the occasional tangent."
+>
+  <h1>Blog</h1>
+  <p class="lede">
+    Notes on games, tools, hardware, and the occasional tangent.
+  </p>
+
+  <div class="posts">
+    {posts.map((post) => <BlogCard post={post} />)}
+  </div>
+
+  {
+    posts.length === 0 && (
+      <p class="muted">
+        No posts yet. Add a Markdown file to <code>src/content/blog/</code> to
+        start one.
+      </p>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .posts {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

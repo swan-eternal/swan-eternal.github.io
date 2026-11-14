@@ -1,0 +1,16 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Editor / OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.production

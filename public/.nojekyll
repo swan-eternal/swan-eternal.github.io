@@ -1,0 +1,7 @@
+# The `_astro` directory starts with an underscore, which Jekyll (GitHub
+# Pages' default build engine) would skip entirely. An empty `.nojekyll`
+# file in the build output tells GitHub to serve the files as-is.
+#
+# This file lives in `public/`, and Astro copies everything in `public/`
+# to the root of the build output — so it lands in `dist/.nojekyll`
+# automatically, no extra build step needed.

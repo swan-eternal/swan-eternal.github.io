@@ -1,0 +1,84 @@
+---
+/**
+ * An inline expandable explanation, in the spirit of ncase's "nutshell".
+ *
+ * In a technical blog post, a term like "phasor measurement unit" can open
+ * into a short extra explanation without sending the reader to a glossary
+ * page and losing their place. This is a small, dependency-free version of
+ * that idea: a click toggles an inline panel.
+ *
+ * Usage in Markdown:
+ *
+ *   <ExpandableTerm term="phasor measurement unit">
+ *     A device that timestamps voltage and current waveforms...
+ *   </ExpandableTerm>
+ */
+interface Props {
+  term: string;
+}
+
+const { term } = Astro.props;
+---
+
+<span class="expandable">
+  <button class="term" type="button" aria-expanded="false">{term}</button>
+  <span class="panel" hidden>
+    <slot />
+  </span>
+</span>
+
+<script>
+  /**
+   * Toggle the panel. One listener on the document handles every instance,
+   * so adding more <ExpandableTerm> elements costs nothing extra.
+   */
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement | null;
+    const term = target?.closest<HTMLButtonElement>('.term');
+    if (!term) return;
+
+    const panel = term.parentElement?.querySelector<HTMLElement>('.panel');
+    if (!panel) return;
+
+    const isOpen = term.getAttribute('aria-expanded') === 'true';
+    term.setAttribute('aria-expanded', String(!isOpen));
+    panel.hidden = isOpen;
+  });
+</script>
+
+<style>
+  .expandable {
+    display: inline;
+  }
+
+  .term {
+    font: inherit;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 0;
+    border-bottom: 1px dotted currentColor;
+    border-radius: 3px;
+    padding: 0 0.2em;
+    cursor: help;
+  }
+
+  .term[aria-expanded='true'] {
+    border-bottom-style: solid;
+  }
+
+  .panel {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-card);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 0.9375rem;
+  }
+
+  /* The panel is a block inside a sentence, so it needs to break out of the
+     inline flow without breaking the paragraph around it. */
+  .panel[hidden] {
+    display: none;
+  }
+</style>

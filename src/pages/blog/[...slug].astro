@@ -1,0 +1,72 @@
+---
+/**
+ * A single blog post.
+ *
+ * The Markdown body can use the components in src/components/ — for example
+ * <ExpandableTerm> to open a technical term into a short explanation, which
+ * keeps the reader in place instead of sending them to a glossary.
+ */
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await render(post);
+
+const formatted = data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={data.title} description={data.description} noIndex={data.draft}>
+  <a class="back-link" href="/blog">&larr; All writing</a>
+
+  <h1>{data.title}</h1>
+
+  <div class="meta-row">
+    <time datetime={data.pubDate.toISOString()}>{formatted}</time>
+    {
+      data.updatedDate && (
+        <span>
+          updated{' '}
+          {data.updatedDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </span>
+      )
+    }
+    {
+      data.tags.map((tag) => (
+        <span class="badge">{tag}</span>
+      ))
+    }
+  </div>
+
+  <div class="prose">
+    <Content />
+  </div>
+</BaseLayout>
+
+<style>
+  .prose {
+    /* Give long-form writing a slightly narrower measure than the page. */
+    max-width: 40rem;
+  }
+</style>

@@ -1,0 +1,137 @@
+---
+/**
+ * Project detail page.
+ *
+ * The build order follows how a visitor reads a project:
+ *   what is it -> what does it look like -> watch it -> try it -> read it ->
+ *   where's the source
+ *
+ * Every block below is optional. A project with only a title and a paragraph
+ * renders fine; the page fills in as real content arrives.
+ */
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VideoEmbed from '../../components/VideoEmbed.astro';
+import EmbedFrame from '../../components/EmbedFrame.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id.replace(/\.md$/, '') },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+
+// Renders the Markdown body of the .md file into a <Content /> component.
+const { Content } = await render(project);
+
+const statusLabel: Record<string, string> = {
+  shipped: 'shipped',
+  'in-progress': 'in progress',
+  experiment: 'experiment',
+};
+
+const formatted = data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <a class="back-link" href="/projects">&larr; All projects</a>
+
+  <h1>{data.title}</h1>
+  <p class="lede">{data.description}</p>
+
+  <div class="meta-row">
+    <span class="badge" data-status={data.status}>{statusLabel[data.status]}</span>
+    <span>{formatted}</span>
+    {
+      data.stats.map((stat) => (
+        <span>{stat}</span>
+      ))
+    }
+  </div>
+
+  {
+    data.photos.length > 0 && (
+      <div class="photos">
+        {data.photos.map((photo) => (
+          <img src={photo} alt="" loading="lazy" />
+        ))}
+      </div>
+    )
+  }
+
+  {data.videoId && <VideoEmbed videoId={data.videoId} title={data.title} />}
+
+  {
+    data.embeds.map((embed) => (
+      <EmbedFrame
+        title={embed.title}
+        src={embed.src}
+        height={embed.height}
+        caption={embed.caption}
+      />
+    ))
+  }
+
+  <div class="prose">
+    <Content />
+  </div>
+
+  {
+    data.links.length > 0 && (
+      <div class="links">
+        <h2 class="section-title">Links</h2>
+        <ul>
+          {data.links.map((link) => (
+            <li>
+              <a href={link.url}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .photos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+  }
+
+  .links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .links li {
+    font-size: 0.9375rem;
+  }
+</style>

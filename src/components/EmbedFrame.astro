@@ -1,0 +1,96 @@
+---
+/**
+ * An embedded interactive widget: an in-browser game, a data visualization,
+ * or a small web app.
+ *
+ * Two ideas behind this:
+ *
+ * 1. Each widget lives in its own repository and is published by GitHub Pages
+ *    at /<repo-name>/ under the site domain. The main site only links to it
+ *    in an iframe. Nothing about the game needs to know about Astro.
+ *
+ * 2. The iframe is told when it is on screen. ncase.me does this by setting
+ *    a flag on the iframe's contentWindow from the parent's scroll handler;
+ *    the widget checks the flag and pauses its animation when it is off
+ *    screen. That keeps a heavy canvas demo from draining a phone battery
+ *    while someone is reading the prose above it.
+ */
+interface Props {
+  title: string;
+  src: string;
+  height?: number;
+  caption?: string;
+}
+
+const { title, src, height = 420, caption } = Astro.props;
+---
+
+<figure class="embed">
+  <iframe
+    src={src}
+    title={title}
+    width="100%"
+    height={height}
+    loading="lazy"
+    scrolling="no"
+    style="border:0"
+  ></iframe>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<script>
+  /**
+   * Tell embedded frames whether they are currently visible.
+   *
+   * We set `IS_IN_SIGHT` on the iframe's contentWindow. That only works
+   * same-origin (which these are — same domain, different path), so a
+   * cross-origin embed is simply skipped without throwing.
+   *
+   * The widget side is a few lines:
+   *
+   *   window.IS_IN_SIGHT = false;
+   *   function frame() {
+   *     if (window.IS_IN_SIGHT) requestAnimationFrame(frame);
+   *   }
+   */
+  const frames = document.querySelectorAll<HTMLIFrameElement>('.embed iframe');
+
+  const setVisibility = () => {
+    const viewportHeight = window.innerHeight;
+
+    frames.forEach((frame) => {
+      const rect = frame.getBoundingClientRect();
+      const visible = rect.top < viewportHeight && rect.bottom > 0;
+
+      try {
+        (frame.contentWindow as unknown as { IS_IN_SIGHT: boolean })
+          .IS_IN_SIGHT = visible;
+      } catch {
+        // Cross-origin frame — nothing we can do, and nothing we need to.
+      }
+    });
+  };
+
+  setVisibility();
+  window.addEventListener('scroll', setVisibility, { passive: true });
+  window.addEventListener('resize', setVisibility);
+</script>
+
+<style>
+  .embed {
+    margin: 1.75rem 0;
+  }
+
+  iframe {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>

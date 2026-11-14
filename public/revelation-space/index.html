@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Revelation Space — stub</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0e18; color: #e9e9ec;
+    font-family: ui-sans-serif, system-ui, sans-serif; overflow: hidden; }
+  svg { display: block; width: 100%; height: 100%; }
+  #tag { position: fixed; bottom: 8px; right: 12px; font-size: 11px; opacity: .5; }
+</style>
+</head>
+<body>
+<svg id="s" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid meet">
+  <g id="grid"></g>
+  <g id="stars"></g>
+</svg>
+<div id="tag">stub — real build replaces this at /revelation-space/</div>
+<script>
+/**
+ * Placeholder, served at /revelation-space/ to match the URL the real
+ * repo's GitHub Pages site will occupy.
+ *
+ * A rough sketch of what the map is: a sky chart of the local
+ * neighbourhood, Sol at the centre, the other systems at their real
+ * relative positions.
+ *
+ * Same IS_IN_SIGHT pause contract as the other stubs — the parent sets
+ * window.IS_IN_SIGHT from its scroll handler and the widget stops
+ * animating when it is off screen.
+ */
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.getElementById('s');
+const gGrid = document.getElementById('grid');
+const gStars = document.getElementById('stars');
+
+// Distance rings, 5 and 10 ly.
+for (const r of [55, 110]) {
+  const c = document.createElementNS(NS, 'circle');
+  c.setAttribute('cx', '200');
+  c.setAttribute('cy', '120');
+  c.setAttribute('r', String(r));
+  c.setAttribute('fill', 'none');
+  c.setAttribute('stroke', '#2a3040');
+  c.setAttribute('stroke-width', '1');
+  gGrid.appendChild(c);
+}
+
+// Sol, and the systems around it.
+const stars = [
+  { x: 200, y: 120, r: 4.5, name: 'Sol' },
+  { x: 262, y: 74, r: 3, name: '61 Cygni' },
+  { x: 142, y: 96, r: 2.6, name: '107 Piscium' },
+  { x: 236, y: 168, r: 2.4, name: 'Ross 248' },
+  { x: 158, y: 164, r: 2.2, name: 'Groombridge 1618' },
+  { x: 214, y: 62, r: 2, name: 'Lacaille 9352' },
+];
+
+for (const s of stars) {
+  const c = document.createElementNS(NS, 'circle');
+  c.setAttribute('cx', String(s.x));
+  c.setAttribute('cy', String(s.y));
+  c.setAttribute('r', String(s.r));
+  c.setAttribute('fill', '#f0dca6');
+  gStars.appendChild(c);
+
+  const t = document.createElementNS(NS, 'text');
+  t.setAttribute('x', String(s.x + s.r + 4));
+  t.setAttribute('y', String(s.y + 3));
+  t.setAttribute('fill', '#9fb0bd');
+  t.setAttribute('font-size', '9');
+  t.textContent = s.name;
+  gStars.appendChild(t);
+}
+
+window.IS_IN_SIGHT = true;
+function frame() {
+  if (window.IS_IN_SIGHT) requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

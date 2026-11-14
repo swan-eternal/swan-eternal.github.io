@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Astro-Rescue — stub</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0e18; color: #e9e9ec;
+    font-family: ui-sans-serif, system-ui, sans-serif; overflow: hidden; }
+  canvas { display: block; }
+  #hud { position: fixed; top: 10px; left: 12px; font-size: 13px; opacity: .85; }
+  #tag { position: fixed; bottom: 8px; right: 12px; font-size: 11px; opacity: .5; }
+</style>
+</head>
+<body>
+<div id="hud">score <span id="score">0</span></div>
+<canvas id="c"></canvas>
+<div id="tag">stub — real build replaces this at /astro-rescue/</div>
+<script>
+/**
+ * Placeholder game, served at /astro-rescue/ so the path matches where the
+ * real Astro-Rescue GitHub Pages site will live. Delete this directory once
+ * the game repo is published and Pages is switched on — the embed URL in
+ * src/content/projects/astro-rescue.md does not change.
+ *
+ * It also demonstrates the contract EmbedFrame.astro expects: the parent sets
+ * window.IS_IN_SIGHT, and the widget pauses its animation loop when false.
+ */
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const scoreEl = document.getElementById('score');
+
+function resize() {
+  canvas.width = canvas.clientWidth = window.innerWidth;
+  canvas.height = canvas.clientHeight = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const ship = { x: 60, y: 60, r: 10 };
+const orbs = [];
+let score = 0;
+let t = 0;
+
+function spawn() {
+  orbs.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: 8 + Math.random() * 6,
+  });
+}
+for (let i = 0; i < 5; i++) spawn();
+
+canvas.addEventListener('pointermove', (e) => {
+  ship.x = e.clientX;
+  ship.y = e.clientY;
+});
+
+function step() {
+  t += 0.02;
+  ctx.fillStyle = '#0b0e18';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // A slow drifting grid, so the motion is obvious when the loop is paused.
+  ctx.strokeStyle = 'rgba(120,150,255,0.10)';
+  for (let x = (t * 20) % 64; x < canvas.width; x += 64) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+  }
+
+  ctx.fillStyle = '#7fb2f0';
+  ctx.beginPath(); ctx.arc(ship.x, ship.y, ship.r, 0, Math.PI * 2); ctx.fill();
+
+  for (let i = orbs.length - 1; i >= 0; i--) {
+    const o = orbs[i];
+    ctx.fillStyle = '#ffd27f';
+    ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2); ctx.fill();
+
+    const dx = o.x - ship.x, dy = o.y - ship.y;
+    if (dx * dx + dy * dy < (o.r + ship.r) ** 2) {
+      orbs.splice(i, 1);
+      score++;
+      scoreEl.textContent = score;
+      spawn();
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+/* The pause contract: the parent page tells us when we're on screen. */
+window.IS_IN_SIGHT = true;
+function frame() {
+  if (window.IS_IN_SIGHT) requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

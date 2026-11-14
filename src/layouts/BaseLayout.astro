@@ -1,0 +1,131 @@
+---
+import '../styles/global.css';
+
+/**
+ * Base HTML shell for every page.
+ *
+ * Two jobs:
+ *   1. The <head> — title, description, social cards, RSS link.
+ *   2. The chrome — site header, main slot, footer.
+ *
+ * Props:
+ *   title       - page title. The site name is appended automatically.
+ *   description - one-line summary. Used for SEO and the social card.
+ *   image       - path to a share image (absolute path from public/).
+ *   noIndex     - set true for pages you don't want in search results.
+ */
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = 'Jason Swan — engineer, game developer, and tinkerer.',
+  image = '/social-card.png',
+  noIndex = false,
+} = Astro.props;
+
+// Astro.site comes from astro.config.mjs. Use it so the canonical URL and
+// social tags are absolute — relative ones don't work when the site is
+// shared to Slack or iMessage.
+const siteName = 'Jason Swan';
+const pageTitle = title ? `${title} — ${siteName}` : siteName;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
+const rss = new URL('/rss.xml', Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noIndex && <meta name="robots" content="noindex" />}
+
+    <!-- Social cards. Same block ncase.me uses on every page. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={siteName} href={rss} />
+
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="site-title" href="/">{siteName}</a>
+      <nav class="site-nav">
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Placeholder footer. Put contact links here — email, GitHub, itch.io.
+      </p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .site-title {
+    font-weight: 650;
+    font-size: var(--step-1);
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.925rem;
+  }
+
+  .site-nav a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .site-nav a:hover {
+    color: var(--accent);
+  }
+
+  .site-footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+</style>

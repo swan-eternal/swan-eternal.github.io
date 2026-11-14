@@ -1,0 +1,146 @@
+---
+/**
+ * Click-to-load YouTube embed.
+ *
+ * Why not a plain <iframe src="youtube.com/embed/...">?
+ *   - YouTube's iframe pulls roughly 1 MB of JavaScript. A plain embed makes
+ *     every visitor download it, even if they never press play.
+ *   - This version renders a static thumbnail instead and only creates the
+ *     iframe when the visitor clicks.
+ *   - It uses youtube-nocookie.com, so the embed doesn't set tracking cookies
+ *     until the visitor actually interacts with the player.
+ *
+ * The thumbnail comes from YouTube's image CDN (i.ytimg.com), which is
+ * allowed for exactly this purpose.
+ */
+interface Props {
+  /** The video ID — the part after youtube.com/watch?v= */
+  videoId: string;
+  title: string;
+}
+
+const { videoId, title } = Astro.props;
+
+// "hqdefault" is the always-available 480x360 thumbnail. There is no
+// guaranteed 16:9 thumbnail, so the frame is padded with the poster's own
+// background color to avoid distortion.
+const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+---
+
+<div class="video" data-video-id={videoId}>
+  <button class="facade" type="button" aria-label={`Play video: ${title}`}>
+    <img src={thumbnail} alt="" loading="lazy" width="480" height="360" />
+    <span class="play" aria-hidden="true"></span>
+    <span class="caption">{title}</span>
+  </button>
+</div>
+
+<script>
+  /**
+   * Swap the thumbnail for a real iframe on click.
+   *
+   * This runs once per page load, and only attaches a listener to facades
+   * that are still present. Astro bundles and hoists <script> tags, so this
+   * is a module that runs after the DOM is parsed.
+   */
+  document.querySelectorAll<HTMLElement>('.video').forEach((container) => {
+    const facade = container.querySelector<HTMLButtonElement>('.facade');
+    const videoId = container.dataset.videoId;
+    if (!facade || !videoId) return;
+
+    facade.addEventListener(
+      'click',
+      () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+        iframe.title = facade.querySelector('.caption')?.textContent ?? 'Video';
+        iframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        iframe.setAttribute('loading', 'lazy');
+
+        // Replace the whole facade so the 16:9 box stays the same size and
+        // the video fills it exactly.
+        const frame = document.createElement('div');
+        frame.className = 'frame';
+        frame.appendChild(iframe);
+        container.replaceChildren(frame);
+      },
+      { once: true },
+    );
+  });
+</script>
+
+<style>
+  .video {
+    margin: 1.5rem 0;
+  }
+
+  .facade {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #101014;
+    cursor: pointer;
+    line-height: 0;
+  }
+
+  .facade img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  .facade:hover img {
+    opacity: 1;
+  }
+
+  /* The play triangle, drawn with borders so it needs no image asset. */
+  .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    border-left: 2.2rem solid rgba(255, 255, 255, 0.92);
+    border-top: 1.3rem solid transparent;
+    border-bottom: 1.3rem solid transparent;
+    filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.5));
+  }
+
+  .caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    color: #fff;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #101014;
+  }
+
+  .frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>

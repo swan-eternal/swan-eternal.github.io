@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Power flow — stub</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0a141a; color: #e9e9ec;
+    font-family: ui-sans-serif, system-ui, sans-serif; overflow: hidden; }
+  svg { display: block; width: 100%; height: 100%; }
+  #tag { position: fixed; bottom: 8px; right: 12px; font-size: 11px; opacity: .5; }
+</style>
+</head>
+<body>
+<svg id="s" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid meet">
+  <g id="nodes"></g>
+  <g id="edges"></g>
+</svg>
+<div id="tag">stub — real build replaces this at /power-flow/</div>
+<script>
+/**
+ * Placeholder visualization, served at /power-flow/ to match the URL the
+ * real repo's GitHub Pages site will occupy.
+ *
+ * Shows a small network with animated power flow. Same IS_IN_SIGHT pause
+ * contract as the game stub.
+ */
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.getElementById('s');
+const gN = document.getElementById('nodes');
+const gE = document.getElementById('edges');
+
+const nodes = [
+  { x: 60,  y: 60,  label: 'gen' },
+  { x: 180, y: 40,  label: 'bus A' },
+  { x: 300, y: 80,  label: 'bus B' },
+  { x: 120, y: 160, label: 'load' },
+  { x: 260, y: 180, label: 'load' },
+];
+const edges = [[0,1],[1,2],[0,3],[1,3],[1,4],[2,4],[3,4]];
+
+for (const [a, b] of edges) {
+  const line = document.createElementNS(NS, 'line');
+  line.setAttribute('x1', nodes[a].x); line.setAttribute('y1', nodes[a].y);
+  line.setAttribute('x2', nodes[b].x); line.setAttribute('y2', nodes[b].y);
+  line.setAttribute('stroke', '#2f7d5a');
+  line.setAttribute('stroke-width', '2');
+  gE.appendChild(line);
+}
+for (const n of nodes) {
+  const c = document.createElementNS(NS, 'circle');
+  c.setAttribute('cx', n.x); c.setAttribute('cy', n.y); c.setAttribute('r', '9');
+  c.setAttribute('fill', '#7fb2f0');
+  gN.appendChild(c);
+  const t = document.createElementNS(NS, 'text');
+  t.setAttribute('x', n.x + 12); t.setAttribute('y', n.y + 4);
+  t.setAttribute('fill', '#9fb0bd'); t.setAttribute('font-size', '11');
+  t.textContent = n.label;
+  gN.appendChild(t);
+}
+
+let t = 0;
+function step() {
+  t += 0.03;
+  // Dash offset animates to suggest flow along each line.
+  edges.forEach(([a, b], i) => {
+    const line = gE.children[i];
+    line.setAttribute('stroke-dasharray', '6 10');
+    line.setAttribute('stroke-dashoffset', String(-(t * (40 + i * 8)) % 16));
+  });
+  requestAnimationFrame(step);
+}
+
+window.IS_IN_SIGHT = true;
+function frame() {
+  if (window.IS_IN_SIGHT) requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

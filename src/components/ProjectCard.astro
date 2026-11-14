@@ -1,0 +1,134 @@
+---
+/**
+ * A project card for the homepage grids.
+ *
+ * Design borrowed from ncase.me: thumbnail, then a bold title, then the
+ * description in a muted gray. The only hover effect is a drop in opacity —
+ * no lifting, no sliding, no shadows. Restraint reads as quality.
+ */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  /** Cover images are 16:9; the card crops them to a consistent band. */
+  loading?: 'lazy' | 'eager';
+}
+
+const { project, loading = 'lazy' } = Astro.props;
+const { data } = project;
+
+// Slug = the file path relative to src/content/projects, minus ".md".
+// e.g. src/content/projects/astro-rescue.md -> "astro-rescue"
+const slug = project.id.replace(/\.md$/, '');
+
+const statusLabel: Record<string, string> = {
+  shipped: 'shipped',
+  'in-progress': 'in progress',
+  experiment: 'experiment',
+};
+---
+
+<article class="card">
+  <a href={`/projects/${slug}/`}>
+    {
+      data.cover && (
+        <Image
+          src={data.cover}
+          alt=""
+          class="cover"
+          loading={loading}
+          widths={[320, 640, 960]}
+          sizes="(max-width: 40rem) 100vw, 20rem"
+        />
+      )
+    }
+    <div class="body">
+      <div class="head">
+        <h3 class="title">{data.title}</h3>
+        <span class="badge" data-status={data.status}>
+          {statusLabel[data.status]}
+        </span>
+      </div>
+      <p class="pitch">{data.description}</p>
+      {
+        data.stats.length > 0 && (
+          <p class="stats">
+            {data.stats.map((stat) => (
+              <span>{stat}</span>
+            ))}
+          </p>
+        )
+      }
+    </div>
+  </a>
+</article>
+
+<style>
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    overflow: hidden;
+    transition: opacity 0.12s ease-in-out;
+  }
+
+  /* Only opacity changes on hover. */
+  .card:hover {
+    opacity: 0.82;
+  }
+
+  .card a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cover {
+    display: block;
+    width: 100%;
+    /* Fixed band so every card in the grid lines up, whatever the source
+       image's aspect ratio. object-fit crops rather than distorts. */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--accent-soft);
+  }
+
+  .body {
+    padding: 0.85rem 1rem 1rem;
+  }
+
+  .head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+
+  .pitch {
+    margin: 0.4rem 0 0;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .stats {
+    margin: 0.6rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .stats span:not(:last-child)::after {
+    content: '·';
+    margin-left: 0.75rem;
+    color: var(--line);
+  }
+</style>
