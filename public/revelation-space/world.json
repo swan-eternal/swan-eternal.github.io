@@ -1,0 +1,2033 @@
+{
+  "title": "Revelation Space",
+  "overworld": "region",
+  "start": {
+    "raw": "2083",
+    "approx": false,
+    "year": 2083,
+    "startInstant": 2083,
+    "endInstant": 2083.9988021902805,
+    "kind": "exact",
+    "warnings": []
+  },
+  "end": {
+    "raw": "2950",
+    "approx": false,
+    "year": 2950,
+    "startInstant": 2950,
+    "endInstant": 2950.9988021902805,
+    "kind": "exact",
+    "warnings": []
+  },
+  "maps": [
+    {
+      "id": "107-piscium",
+      "name": "107 Piscium",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "107-piscium.svg",
+          "caption": "107 Piscium, schematically.",
+          "path": "maps/107-piscium/107-piscium.svg"
+        }
+      ]
+    },
+    {
+      "id": "61-cygni",
+      "name": "61 Cygni",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "61-cygni.svg",
+          "caption": "61 Cygni, schematically.",
+          "path": "maps/61-cygni/61-cygni.svg"
+        }
+      ]
+    },
+    {
+      "id": "delta-pavonis",
+      "name": "Delta Pavonis",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "delta-pavonis.svg",
+          "caption": "Delta Pavonis, schematically.",
+          "path": "maps/delta-pavonis/delta-pavonis.svg"
+        }
+      ]
+    },
+    {
+      "id": "epsilon-eridani",
+      "name": "Epsilon Eridani",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "epsilon-eridani.svg",
+          "caption": "Epsilon Eridani, schematically.",
+          "path": "maps/epsilon-eridani/epsilon-eridani.svg"
+        }
+      ]
+    },
+    {
+      "id": "gliese-687",
+      "name": "Gliese 687",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "gliese-687.svg",
+          "caption": "Gliese 687, schematically.",
+          "path": "maps/gliese-687/gliese-687.svg"
+        }
+      ]
+    },
+    {
+      "id": "groombridge-1618",
+      "name": "Groombridge 1618",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "groombridge-1618.svg",
+          "caption": "Groombridge 1618, schematically.",
+          "path": "maps/groombridge-1618/groombridge-1618.svg"
+        }
+      ]
+    },
+    {
+      "id": "lacaille-9352",
+      "name": "Lacaille 9352",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "lacaille-9352.svg",
+          "caption": "Lacaille 9352, schematically.",
+          "path": "maps/lacaille-9352/lacaille-9352.svg"
+        }
+      ]
+    },
+    {
+      "id": "region",
+      "name": "The Local Neighbourhood",
+      "size": [
+        900,
+        900
+      ],
+      "images": [
+        {
+          "file": "region.svg",
+          "caption": "The local neighbourhood, true scale.",
+          "path": "maps/region/region.svg"
+        }
+      ]
+    },
+    {
+      "id": "ross-248",
+      "name": "Ross 248",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "ross-248.svg",
+          "caption": "Ross 248, schematically.",
+          "path": "maps/ross-248/ross-248.svg"
+        }
+      ]
+    },
+    {
+      "id": "sol",
+      "name": "Sol",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "sol.svg",
+          "caption": "Sol, schematically.",
+          "path": "maps/sol/sol.svg"
+        }
+      ]
+    },
+    {
+      "id": "tau-ceti",
+      "name": "Tau Ceti",
+      "parent": "region",
+      "size": [
+        800,
+        600
+      ],
+      "images": [
+        {
+          "file": "tau-ceti.svg",
+          "caption": "Tau Ceti, schematically.",
+          "path": "maps/tau-ceti/tau-ceti.svg"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "107-piscium",
+      "name": "107 Piscium",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        403,
+        93
+      ],
+      "opens": "107-piscium",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ],
+      "card": "Malora Shadows; the Nestbuilders' territory."
+    },
+    {
+      "id": "61-cygni",
+      "name": "61 Cygni",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        254,
+        355
+      ],
+      "opens": "61-cygni",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ],
+      "card": "Sky's Edge. Also designated p Eridani."
+    },
+    {
+      "id": "carousel-new-brazilia",
+      "name": "Carousel New Brazilia",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        437,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ],
+      "card": "\n**Condition over time**\n\n- 2510–present: stable — Intact"
+    },
+    {
+      "id": "carousel-new-copenhagen",
+      "name": "Carousel New Copenhagen",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        433,
+        296
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ],
+      "card": "\n**Condition over time**\n\n- 2510–present: stable — Intact"
+    },
+    {
+      "id": "carousel-new-seattle-tacoma",
+      "name": "Carousel New Seattle-Tacoma",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        421,
+        305
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "carousel-new-vancouver",
+      "name": "Carousel New Vancouver",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        404,
+        310
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "carousel-new-venice",
+      "name": "Carousel New Venice",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        387,
+        308
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "chasm-city",
+      "name": "Chasm City",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        400,
+        268
+      ],
+      "stays": [],
+      "tags": [
+        "city"
+      ],
+      "card": "Largest settlement on Yellowstone; dwarfing Ferrisville.\n\n**Condition over time**\n\n- 2350–2510: thriving — Belle Époque\n- 2510–present: collapsed — Post-plague"
+    },
+    {
+      "id": "deep-space",
+      "name": "Deep space",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        70,
+        830
+      ],
+      "stays": [],
+      "tags": [
+        "region"
+      ],
+      "card": "Unanchored catch-all for journeys with no named body. Not a chart frame."
+    },
+    {
+      "id": "delta-pavonis",
+      "name": "Delta Pavonis",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        431,
+        772
+      ],
+      "opens": "delta-pavonis",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ],
+      "card": "Resurgam."
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "aliases": [],
+      "map": "sol",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "Origin of human space."
+    },
+    {
+      "id": "epsilon-eridani",
+      "name": "Epsilon Eridani",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        552,
+        362
+      ],
+      "opens": "epsilon-eridani",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ],
+      "card": "Yellowstone and the Glitter Band."
+    },
+    {
+      "id": "europa",
+      "name": "Europa",
+      "aliases": [],
+      "map": "sol",
+      "at": [
+        411,
+        312
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "The Europan cities fell in the Denizen uprising of 2340.\n\n**Condition over time**\n\n- 2340–present: degraded — After the Denizen uprising — extent uncertain"
+    },
+    {
+      "id": "fand",
+      "name": "Fand",
+      "aliases": [],
+      "map": "lacaille-9352",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "Obscure, little-mentioned; the scene of the 2378 hostage crisis."
+    },
+    {
+      "id": "ferrisville",
+      "name": "Ferrisville",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        411,
+        296
+      ],
+      "stays": [],
+      "tags": [
+        "city"
+      ],
+      "card": "Second largest settlement on Yellowstone."
+    },
+    {
+      "id": "gliese-687",
+      "name": "Gliese 687",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        271,
+        287
+      ],
+      "opens": "gliese-687",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ]
+    },
+    {
+      "id": "glitter-band",
+      "name": "Glitter Band",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "habitat_ring"
+      ],
+      "card": "Roughly ten thousand orbital habitats around Yellowstone. Their remnants, after the Melding Plague, are the Rust Belt.\n\n**Condition over time**\n\n- 2350–2510: thriving — Glitter Band\n- 2510–present: collapsed — Rust Belt"
+    },
+    {
+      "id": "groombridge-1618",
+      "name": "Groombridge 1618",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        512,
+        273
+      ],
+      "opens": "groombridge-1618",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ],
+      "card": "Turquoise."
+    },
+    {
+      "id": "hospice-idlewild",
+      "name": "Hospice Idlewild",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        372,
+        301
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ],
+      "card": "An Ice Mendicant hospice; part of the post-plague Rust Belt."
+    },
+    {
+      "id": "house-aubusson",
+      "name": "House Aubusson",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        364,
+        290
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "house-flammarion",
+      "name": "House Flammarion",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        364,
+        278
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "house-perigal",
+      "name": "House Perigal",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        372,
+        267
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "irravels-moon",
+      "name": "Irravel's Moon",
+      "aliases": [],
+      "map": "lacaille-9352",
+      "at": [
+        400,
+        268
+      ],
+      "stays": [],
+      "tags": [
+        "moon"
+      ]
+    },
+    {
+      "id": "lacaille-9352",
+      "name": "Lacaille 9352",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        397,
+        516
+      ],
+      "opens": "lacaille-9352",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ]
+    },
+    {
+      "id": "malora-shadows",
+      "name": "Malora Shadows",
+      "aliases": [],
+      "map": "107-piscium",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "region"
+      ]
+    },
+    {
+      "id": "marcos-eye",
+      "name": "Marco's Eye",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        413,
+        274
+      ],
+      "stays": [],
+      "tags": [
+        "moon"
+      ]
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "aliases": [],
+      "map": "sol",
+      "at": [
+        384,
+        299
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ]
+    },
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "aliases": [],
+      "map": "sol",
+      "at": [
+        413,
+        290
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "Where the Flotilla launched from in 2083 — the five generation ships were re-purposed in-system freighters, and humanity's first manned interstellar colonisation effort began here."
+    },
+    {
+      "id": "moon",
+      "name": "Moon",
+      "aliases": [],
+      "map": "sol",
+      "at": [
+        400,
+        268
+      ],
+      "stays": [],
+      "tags": [
+        "moon"
+      ]
+    },
+    {
+      "id": "panoply",
+      "name": "Panoply",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        387,
+        260
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ],
+      "card": "The Panoply's own habitat, and the police force for the Glitter Band."
+    },
+    {
+      "id": "resurgam",
+      "name": "Resurgam",
+      "aliases": [],
+      "map": "delta-pavonis",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "A desert world with a toxic atmosphere; site of the Nauarchos colony.\n\n**Condition over time**\n\n- 2511–present: abandoned — Nauarchos"
+    },
+    {
+      "id": "ross-248",
+      "name": "Ross 248",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        337,
+        297
+      ],
+      "opens": "ross-248",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ]
+    },
+    {
+      "id": "ruskin-sartorious-bubble",
+      "name": "Ruskin-Sartorious Bubble",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        404,
+        258
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "shiva-parvati",
+      "name": "Shiva-Parvati",
+      "aliases": [],
+      "map": "sol",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "habitat_ring"
+      ]
+    },
+    {
+      "id": "shroud",
+      "name": "Lascaille's Shroud",
+      "aliases": [],
+      "map": "tau-ceti",
+      "at": [
+        400,
+        268
+      ],
+      "stays": [],
+      "tags": [
+        "artifact"
+      ],
+      "card": "A restructured spacetime zone housing a hidden civilisation."
+    },
+    {
+      "id": "skys-edge",
+      "name": "Sky's Edge",
+      "aliases": [],
+      "map": "61-cygni",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "Originally Journey's End. Perennial war, technologically backward."
+    },
+    {
+      "id": "sol",
+      "name": "Sol",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        450,
+        450
+      ],
+      "opens": "sol",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ],
+      "card": "The origin of the region chart; all distances are measured from here."
+    },
+    {
+      "id": "szlumper-oneill",
+      "name": "Szlumper Oneill",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        421,
+        263
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "tangerine-dream",
+      "name": "Tangerine Dream",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        411,
+        312
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "A gas giant."
+    },
+    {
+      "id": "tau-ceti",
+      "name": "Tau Ceti",
+      "aliases": [],
+      "map": "region",
+      "at": [
+        479,
+        392
+      ],
+      "opens": "tau-ceti",
+      "stays": [],
+      "tags": [
+        "star_system"
+      ],
+      "card": "The Trans Tau Ceti sector, where the Shroud lies."
+    },
+    {
+      "id": "the-chevelure-sambuke-hourglass",
+      "name": "The Chevelure-Sambuke Hourglass",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        433,
+        272
+      ],
+      "stays": [],
+      "tags": [
+        "habitat"
+      ]
+    },
+    {
+      "id": "trans-tau-ceti-sector",
+      "name": "Trans Tau Ceti sector",
+      "aliases": [],
+      "map": "tau-ceti",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "region"
+      ]
+    },
+    {
+      "id": "turquoise",
+      "name": "Turquoise",
+      "aliases": [],
+      "map": "groombridge-1618",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "A backwoods world, little visited by lighthuggers."
+    },
+    {
+      "id": "yellowstone",
+      "name": "Yellowstone",
+      "aliases": [],
+      "map": "epsilon-eridani",
+      "at": [
+        400,
+        284
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "A terrestrial planet, habitable in patches thanks to gases from a deep chasm.\n\n**Condition over time**\n\n- 2350–2510: thriving — Belle Époque\n- 2510–present: degraded — Post-plague"
+    },
+    {
+      "id": "nostalgia-for-infinity",
+      "name": "Nostalgia for Infinity",
+      "aliases": [],
+      "kind": "mobile",
+      "stays": [
+        {
+          "at": "delta-pavonis",
+          "from": {
+            "raw": "2620",
+            "approx": false,
+            "year": 2620,
+            "startInstant": 2620,
+            "endInstant": 2620.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2633",
+            "approx": false,
+            "year": 2633,
+            "startInstant": 2633,
+            "endInstant": 2633.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "deep-space",
+          "from": {
+            "raw": "2633",
+            "approx": false,
+            "year": 2633,
+            "startInstant": 2633,
+            "endInstant": 2633.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2651",
+            "approx": false,
+            "year": 2651,
+            "startInstant": 2651,
+            "endInstant": 2651.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "61-cygni",
+          "from": {
+            "raw": "2651",
+            "approx": false,
+            "year": 2651,
+            "startInstant": 2651,
+            "endInstant": 2651.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "vessel",
+        "lighthugger"
+      ]
+    },
+    {
+      "id": "santiago",
+      "name": "Santiago",
+      "aliases": [],
+      "kind": "mobile",
+      "stays": [
+        {
+          "at": "deep-space",
+          "from": {
+            "raw": "2083",
+            "approx": false,
+            "year": 2083,
+            "startInstant": 2083,
+            "endInstant": 2083.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2300",
+            "approx": false,
+            "year": 2300,
+            "startInstant": 2300,
+            "endInstant": 2300.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "skys-edge",
+          "from": {
+            "raw": "2300",
+            "approx": false,
+            "year": 2300,
+            "startInstant": 2300,
+            "endInstant": 2300.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "vessel",
+        "generation ship"
+      ],
+      "card": "One of the five Flotilla ships — with Palestine, Brasilia, Islamabad and Baghdad — that left Mercury in 2083 for the 61 Cygni A system: humanity's first manned interstellar colonisation effort. Each was a two-kilometre re-purposed in-system freighter carrying 960 passengers in reefersleep caskets and a crew of 150, driven by a lithium/antilithium reaction with separate antimatter reservoirs for acceleration and deceleration. The destination planet was named Journey's End and renamed Sky's Edge by the colonists. Only three of the five reached it, undone by external sabotage and internal scheming; the Santiago was one of them, and Schuyler 'Sky' Haussmann sailed aboard her. DATES ARE APPROXIMATE: 2083 is the official departure, but the official timeline says only that the Flotilla would not arrive before the twenty-third century, so 2300 stands for the LATEST possible arrival rather than a documented one. The ship's own fate after arrival is not modelled."
+    }
+  ],
+  "people": [
+    {
+      "id": "ana-khouri",
+      "name": "Ana Khouri",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "chasm-city",
+          "from": {
+            "raw": "2524",
+            "approx": false,
+            "year": 2524,
+            "startInstant": 2524,
+            "endInstant": 2524.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "id": "coalition-for-neural-purity",
+      "name": "Coalition for Neural Purity",
+      "aliases": [],
+      "color": "#8a8a8a",
+      "stays": [
+        {
+          "at": "earth",
+          "from": {
+            "raw": "2178",
+            "approx": false,
+            "year": 2178,
+            "startInstant": 2178,
+            "endInstant": 2178.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2191",
+            "approx": false,
+            "year": 2191,
+            "startInstant": 2191,
+            "endInstant": 2191.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "organization"
+      ]
+    },
+    {
+      "id": "conjoiners",
+      "name": "Conjoiners",
+      "aliases": [],
+      "color": "#b0403b",
+      "stays": [
+        {
+          "at": "resurgam",
+          "from": {
+            "raw": "2511",
+            "approx": false,
+            "year": 2511,
+            "startInstant": 2511,
+            "endInstant": 2511.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "faction"
+      ]
+    },
+    {
+      "id": "dan-sylveste",
+      "name": "Dan Sylveste",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "chasm-city",
+          "from": {
+            "raw": "2351",
+            "approx": false,
+            "year": 2351,
+            "startInstant": 2351,
+            "endInstant": 2351.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2405",
+            "approx": false,
+            "year": 2405,
+            "startInstant": 2405,
+            "endInstant": 2405.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "shroud",
+          "from": {
+            "raw": "2405",
+            "approx": false,
+            "year": 2405,
+            "startInstant": 2405,
+            "endInstant": 2405.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2441",
+            "approx": false,
+            "year": 2441,
+            "startInstant": 2441,
+            "endInstant": 2441.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "chasm-city",
+          "from": {
+            "raw": "2441",
+            "approx": false,
+            "year": 2441,
+            "startInstant": 2441,
+            "endInstant": 2441.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2491",
+            "approx": false,
+            "year": 2491,
+            "startInstant": 2491,
+            "endInstant": 2491.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "resurgam",
+          "from": {
+            "raw": "2491",
+            "approx": false,
+            "year": 2491,
+            "startInstant": 2491,
+            "endInstant": 2491.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2566",
+            "approx": false,
+            "year": 2566,
+            "startInstant": 2566,
+            "endInstant": 2566.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "id": "demarchists",
+      "name": "Demarchists",
+      "aliases": [],
+      "color": "#3b7dd8",
+      "stays": [
+        {
+          "at": "yellowstone",
+          "from": {
+            "raw": "2141",
+            "approx": false,
+            "year": 2141,
+            "startInstant": 2141,
+            "endInstant": 2141.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2510",
+            "approx": false,
+            "year": 2510,
+            "startInstant": 2510,
+            "endInstant": 2510.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "chasm-city",
+          "from": {
+            "raw": "2350",
+            "approx": false,
+            "year": 2350,
+            "startInstant": 2350,
+            "endInstant": 2350.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2510",
+            "approx": false,
+            "year": 2510,
+            "startInstant": 2510,
+            "endInstant": 2510.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "glitter-band",
+          "from": {
+            "raw": "2350",
+            "approx": false,
+            "year": 2350,
+            "startInstant": 2350,
+            "endInstant": 2350.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2510",
+            "approx": false,
+            "year": 2510,
+            "startInstant": 2510,
+            "endInstant": 2510.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "faction"
+      ],
+      "bio": "Democratic anarchy. The Belle Époque was their era."
+    },
+    {
+      "id": "galiana",
+      "name": "Galiana",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "mars",
+          "from": {
+            "raw": "2190",
+            "approx": false,
+            "year": 2190,
+            "startInstant": 2190,
+            "endInstant": 2190.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2415",
+            "approx": false,
+            "year": 2415,
+            "startInstant": 2415,
+            "endInstant": 2415.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "deep-space",
+          "from": {
+            "raw": "2415",
+            "approx": false,
+            "year": 2415,
+            "startInstant": 2415,
+            "endInstant": 2415.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2605",
+            "approx": false,
+            "year": 2605,
+            "startInstant": 2605,
+            "endInstant": 2605.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "id": "greenfly",
+      "name": "Greenfly",
+      "aliases": [],
+      "color": "#7cb342",
+      "stays": [],
+      "tags": [
+        "organization"
+      ],
+      "bio": "Human-designed terraforming swarm; by 40,000 AD it had restructured vast swathes of the Milky Way."
+    },
+    {
+      "id": "ice-mendicants",
+      "name": "Ice Mendicants",
+      "aliases": [],
+      "color": "#4fc3d9",
+      "stays": [
+        {
+          "at": "yellowstone",
+          "from": {
+            "raw": "2510",
+            "approx": false,
+            "year": 2510,
+            "startInstant": 2510,
+            "endInstant": 2510.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "organization"
+      ],
+      "bio": "Charitable medical order in orbit around Yellowstone; they ran the hospices of the Rust Belt."
+    },
+    {
+      "id": "ilia-volyoova",
+      "name": "Ilia Volyova",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "nostalgia-for-infinity",
+          "from": {
+            "raw": "2620",
+            "approx": false,
+            "year": 2620,
+            "startInstant": 2620,
+            "endInstant": 2620.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2633",
+            "approx": false,
+            "year": 2633,
+            "startInstant": 2633,
+            "endInstant": 2633.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "deep-space",
+          "from": {
+            "raw": "2633",
+            "approx": false,
+            "year": 2633,
+            "startInstant": 2633,
+            "endInstant": 2633.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2651",
+            "approx": false,
+            "year": 2651,
+            "startInstant": 2651,
+            "endInstant": 2651.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "nostalgia-for-infinity",
+          "from": {
+            "raw": "2651",
+            "approx": false,
+            "year": 2651,
+            "startInstant": 2651,
+            "endInstant": 2651.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "id": "inhibitors",
+      "name": "Inhibitors",
+      "aliases": [],
+      "color": "#6b4fa0",
+      "stays": [],
+      "tags": [
+        "organization"
+      ],
+      "bio": "Post-intelligent machine race from the Dawn War, galaxy-scale in intent. Called wolves by the Conjoiners."
+    },
+    {
+      "id": "nevil-clavain",
+      "name": "Nevil Clavain",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "earth",
+          "from": {
+            "raw": "2145",
+            "approx": false,
+            "year": 2145,
+            "startInstant": 2145,
+            "endInstant": 2145.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2190",
+            "approx": false,
+            "year": 2190,
+            "startInstant": 2190,
+            "endInstant": 2190.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "mars",
+          "from": {
+            "raw": "2190",
+            "approx": false,
+            "year": 2190,
+            "startInstant": 2190,
+            "endInstant": 2190.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2415",
+            "approx": false,
+            "year": 2415,
+            "startInstant": 2415,
+            "endInstant": 2415.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "deep-space",
+          "from": {
+            "raw": "2415",
+            "approx": false,
+            "year": 2415,
+            "startInstant": 2415,
+            "endInstant": 2415.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2582",
+            "approx": false,
+            "year": 2582,
+            "startInstant": 2582,
+            "endInstant": 2582.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "delta-pavonis",
+          "from": {
+            "raw": "2582",
+            "approx": false,
+            "year": 2582,
+            "startInstant": 2582,
+            "endInstant": 2582.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2640",
+            "approx": false,
+            "year": 2640,
+            "startInstant": 2640,
+            "endInstant": 2640.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "id": "panoply-force",
+      "name": "Panoply",
+      "aliases": [],
+      "color": "#2f8f5b",
+      "stays": [
+        {
+          "at": "glitter-band",
+          "from": {
+            "raw": "2350",
+            "approx": false,
+            "year": 2350,
+            "startInstant": 2350,
+            "endInstant": 2350.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2510",
+            "approx": false,
+            "year": 2510,
+            "startInstant": 2510,
+            "endInstant": 2510.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "organization"
+      ],
+      "bio": "Elite law enforcement of the Demarchist regime; the police force for the Glitter Band."
+    },
+    {
+      "id": "philip-lascaille",
+      "name": "Philip Lascaille",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "shroud",
+          "from": {
+            "raw": "2373",
+            "approx": false,
+            "year": 2373,
+            "startInstant": 2373,
+            "endInstant": 2373.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2378",
+            "approx": false,
+            "year": 2378,
+            "startInstant": 2378,
+            "endInstant": 2378.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ]
+    },
+    {
+      "id": "sky-haussmann",
+      "name": "Sky Haussmann",
+      "aliases": [
+        "Tanner Mirabel"
+      ],
+      "stays": [
+        {
+          "at": "skys-edge",
+          "from": {
+            "raw": "2300",
+            "approx": false,
+            "year": 2300,
+            "startInstant": 2300,
+            "endInstant": 2300.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2517",
+            "approx": false,
+            "year": 2517,
+            "startInstant": 2517,
+            "endInstant": 2517.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "chasm-city",
+          "from": {
+            "raw": "2517",
+            "approx": false,
+            "year": 2517,
+            "startInstant": 2517,
+            "endInstant": 2517.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ],
+      "bio": "Schuyler 'Sky' Haussmann — a 'momio', a sleeper awakened from reefersleep, who sailed on the Santiago. He jettisoned reefersleep caskets so the Santiago would arrive first at Journey's End, and the colonists renamed the planet 'Sky's Edge' as a mockery. Crucified through a stand-in, he slept a century in reefersleep, and became the centre of the Church of Sky cult and its indoctrination virus. He re-emerged as the arms dealer Cahuella, then as 'Tanner Mirabel', then as 'H' — the man who killed and replaced the Mademoiselle, and who drew Nevil Clavain into the Resurgam evacuation. Immortal; his death date is not established. DATES ARE APPROXIMATE: the official timeline fixes the Flotilla's 2083 departure and says it would not arrive before the twenty-third century, so 2300 stands in for the latest possible arrival at Sky's Edge; 2517 is the year Tanner Mirabel reaches Chasm City, by which point the Mirabel/Reivich sequence has played out. He was certainly in Chasm City by 2524, when he recruited Ana Khouri into Shadowplay. The Flotilla years (2083-2300) are not modelled — there is no node for the Santiago."
+    }
+  ],
+  "events": [
+    {
+      "id": "denizen-uprising",
+      "title": "Denizen uprising; fall of the Europan cities.",
+      "when": {
+        "raw": "2340",
+        "approx": false,
+        "year": 2340,
+        "startInstant": 2340,
+        "endInstant": 2340.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "europa"
+      },
+      "people": [],
+      "locations": [],
+      "tags": [
+        "military",
+        "official-timeline"
+      ],
+      "order": 10,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "fand-hostage",
+      "title": "Hostage crisis around Fand.",
+      "when": {
+        "raw": "2378",
+        "approx": false,
+        "year": 2378,
+        "startInstant": 2378,
+        "endInstant": 2378.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "fand"
+      },
+      "people": [],
+      "locations": [],
+      "tags": [
+        "political",
+        "official-timeline"
+      ],
+      "order": 60,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "galiana-clavain-depart",
+      "title": "Departure of Galiana and Clavain's expedition into deep space.",
+      "when": {
+        "raw": "2415",
+        "approx": false,
+        "year": 2415,
+        "startInstant": 2415,
+        "endInstant": 2415.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "deep-space"
+      },
+      "people": [
+        "nevil-clavain",
+        "galiana"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 80,
+      "card": "Departure point not pinned to a specific body.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "green-wave",
+      "title": "Emergence of the Green Wave",
+      "when": {
+        "raw": "2950",
+        "approx": false,
+        "year": 2950,
+        "startInstant": 2950,
+        "endInstant": 2950.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "people": [
+        "greenfly"
+      ],
+      "locations": [],
+      "tags": [
+        "catastrophe",
+        "official-timeline",
+        "galactic"
+      ],
+      "order": 160,
+      "card": "Systematic dismantling of many solar systems. Greenfly is a human-designed terraforming machine, a swarm of Von Neumann robots programmed to break apart terrestrial planets and make them habitable. It began adapting, started classifying intelligent life as a threat, and by 40,000 had transformed vast swathes of the Milky Way.",
+      "sources": [
+        "official-timeline",
+        "wiki:Greenfly"
+      ]
+    },
+    {
+      "id": "human-inhibitor-war",
+      "title": "Events of the human-Inhibitor war",
+      "when": {
+        "raw": "2650..2850",
+        "kind": "range",
+        "approx": false,
+        "from": {
+          "raw": "2650",
+          "approx": false,
+          "year": 2650,
+          "startInstant": 2650,
+          "endInstant": 2650.9988021902805
+        },
+        "to": {
+          "raw": "2850",
+          "approx": false,
+          "year": 2850,
+          "startInstant": 2850,
+          "endInstant": 2850.9988021902805
+        },
+        "warnings": []
+      },
+      "people": [
+        "inhibitors"
+      ],
+      "locations": [],
+      "tags": [
+        "military",
+        "official-timeline",
+        "galactic"
+      ],
+      "order": 150,
+      "card": "The Inhibitors are a galaxy-scale threat: a post-intelligent machine race left over from the Dawn War, whose stated purpose was to inhibit the spread of intelligent life beyond individual planets or solar systems ahead of the Andromeda–Milky Way collision. Called wolves by the Conjoiners because they lurked in the blackness of interstellar space and attacked in packs.",
+      "sources": [
+        "official-timeline",
+        "wiki:Inhibitors"
+      ]
+    },
+    {
+      "id": "khouri-arrives",
+      "title": "Ana Khouri arrives in Chasm City.",
+      "when": {
+        "raw": "2524",
+        "approx": false,
+        "year": 2524,
+        "startInstant": 2524,
+        "endInstant": 2524.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "chasm-city"
+      },
+      "people": [
+        "ana-khouri"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 140,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "lascaille-shroud",
+      "title": "Philip Lascaille's encounter with the Shroud in the Trans Tau Ceti sector.",
+      "when": {
+        "raw": "2373",
+        "approx": false,
+        "year": 2373,
+        "startInstant": 2373,
+        "endInstant": 2373.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "shroud"
+      },
+      "people": [
+        "philip-lascaille"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 50,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "melding-plague",
+      "title": "Melding Plague afflicts Chasm City; effective end of Demarchist era.",
+      "when": {
+        "raw": "2510",
+        "approx": false,
+        "year": 2510,
+        "startInstant": 2510,
+        "endInstant": 2510.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "chasm-city"
+      },
+      "people": [],
+      "locations": [
+        "chasm-city",
+        "yellowstone",
+        "glitter-band"
+      ],
+      "tags": [
+        "catastrophe",
+        "official-timeline"
+      ],
+      "order": 120,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "mirabel-arrives",
+      "title": "Tanner Mirabel arrives in Chasm City.",
+      "when": {
+        "raw": "2517",
+        "approx": false,
+        "year": 2517,
+        "startInstant": 2517,
+        "endInstant": 2517.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "chasm-city"
+      },
+      "people": [
+        "sky-haussmann"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 130,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "resurgam-expedition",
+      "title": "departure of Resurgam expedition.",
+      "when": {
+        "raw": "2491",
+        "approx": false,
+        "year": 2491,
+        "startInstant": 2491,
+        "endInstant": 2491.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "resurgam"
+      },
+      "people": [
+        "dan-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 110,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "shiva-parvati-cordon",
+      "title": "Shiva-Parvati cordon crisis.",
+      "when": {
+        "raw": "2358",
+        "approx": false,
+        "year": 2358,
+        "startInstant": 2358,
+        "endInstant": 2358.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "shiva-parvati"
+      },
+      "people": [],
+      "locations": [],
+      "tags": [
+        "political",
+        "official-timeline"
+      ],
+      "order": 30,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "sylveste-born",
+      "title": "Dan Sylveste born in Chasm City, Yellowstone.",
+      "when": {
+        "raw": "2351",
+        "approx": false,
+        "year": 2351,
+        "startInstant": 2351,
+        "endInstant": 2351.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "chasm-city"
+      },
+      "people": [
+        "dan-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 20,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "sylveste-expedition-departs",
+      "title": "Departure of Sylveste expedition to Lascaille's Shroud.",
+      "when": {
+        "raw": "2405",
+        "approx": false,
+        "year": 2405,
+        "startInstant": 2405,
+        "endInstant": 2405.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "chasm-city"
+      },
+      "people": [
+        "dan-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 70,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "sylveste-expedition-returns",
+      "title": "Return of Sylveste's expedition to Lascaille's Shroud.",
+      "when": {
+        "raw": "2441",
+        "approx": false,
+        "year": 2441,
+        "startInstant": 2441,
+        "endInstant": 2441.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "shroud"
+      },
+      "people": [
+        "dan-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 90,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "sylveste-vanishes",
+      "title": "Dan Sylveste vanishes from Yellowstone for 30 days.",
+      "when": {
+        "raw": "2460",
+        "approx": false,
+        "year": 2460,
+        "startInstant": 2460,
+        "endInstant": 2460.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "yellowstone"
+      },
+      "people": [
+        "dan-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 100,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "the-eighty",
+      "title": "the Eighty.",
+      "when": {
+        "raw": "~2372",
+        "approx": true,
+        "year": 2372,
+        "startInstant": 2372,
+        "endInstant": 2372.9988021902805,
+        "kind": "approx",
+        "warnings": []
+      },
+      "people": [],
+      "locations": [],
+      "tags": [
+        "political",
+        "official-timeline"
+      ],
+      "order": 40,
+      "card": "No location established yet.",
+      "sources": [
+        "official-timeline"
+      ]
+    }
+  ]
+}
