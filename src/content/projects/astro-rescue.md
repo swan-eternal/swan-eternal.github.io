@@ -15,14 +15,14 @@ photos:
 videoId: dQw4w9WgXcQ
 links:
   - label: Play on itch.io
-    url: https://itch.io/
+    url: https://swanware.itch.io/astrorescue
   - label: Source
     url: https://github.com/
 embeds:
   - title: Astro-Rescue (web build)
-    src: /astro-rescue/
-    height: 480
-    caption: Placeholder embed. A real one points at this game's own GitHub Pages repo — same URL, so this line does not change when the real build lands.
+    src: https://html-classic.itch.zone/html/18344613/AstroRescueV1_1/index.html?v=1784132999
+    height: 420
+    caption: Playable in browser, served from itch.io — click inside the frame first so it takes your keyboard.
 ---
 
 ## The idea
