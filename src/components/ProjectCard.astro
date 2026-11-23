@@ -1,17 +1,17 @@
 ---
 /**
- * A horizontal project card for the homepage lists — cover band and text
- * block split the row 50/50, text bottom-aligned against the band. Stacks
- * back to a vertical card on narrow screens. The only hover effect is a
- * drop in opacity — no lifting, no sliding, no shadows. Restraint reads
- * as quality.
+ * A horizontal project card for the homepage lists — cover and text split
+ * the row 50/50; the text block sets the height and the cover fills its
+ * half as a cropped band. Stacks back to a vertical card on narrow
+ * screens. The only hover effect is a drop in opacity — no lifting, no
+ * sliding, no shadows. Restraint reads as quality.
  */
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   project: CollectionEntry<'projects'>;
-  /** Cover images are 16:9; the card crops them to a consistent band. */
+  /** The cover fills the left half as a cropped band; text sets the height. */
   loading?: 'lazy' | 'eager';
 }
 
@@ -33,14 +33,16 @@ const statusLabel: Record<string, string> = {
   <a href={`/projects/${slug}/`}>
     {
       data.cover && (
-        <Image
-          src={data.cover}
-          alt=""
-          class="cover"
-          loading={loading}
-          widths={[320, 640, 960]}
-          sizes="(max-width: 40rem) 100vw, min(50vw, 24rem)"
-        />
+        <div class="cover">
+          <Image
+            src={data.cover}
+            alt=""
+            class="cover-img"
+            loading={loading}
+            widths={[320, 640, 960, 1280]}
+            sizes="(max-width: 40rem) 100vw, min(50vw, 21rem)"
+          />
+        </div>
       )
     }
     <div class="body">
@@ -81,20 +83,29 @@ const statusLabel: Record<string, string> = {
   .card a {
     display: flex;
     align-items: stretch;
+    /* Height guard so a short text block can't collapse the cover band. */
+    min-height: 7.5rem;
     color: inherit;
     text-decoration: none;
   }
 
   .cover {
-    display: block;
     flex: 1 1 0;
     min-width: 0;
-    /* Half the card as a wide band (~75% of the old 16:9 height), so
-       every card lines up whatever the source image's aspect ratio.
-       object-fit crops rather than distorts. */
-    aspect-ratio: 12 / 5;
-    object-fit: cover;
+    position: relative;
+    overflow: hidden;
     background: var(--accent-soft);
+  }
+
+  /* The text block sets the card height; the cover fills its half as a
+     cropped band. Absolute positioning keeps the image's intrinsic
+     aspect ratio from stretching the row. */
+  .cover-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .body {

@@ -8,7 +8,7 @@ stats:
   - TypeScript
   - Newton-Raphson
   - zero runtime deps
-cover: "./images/powerdemo.jpg"
+cover: "./images/powerdemo.png"
 links:
   - label: Open the demo
     url: https://swan-eternal.github.io/powerdemo/
