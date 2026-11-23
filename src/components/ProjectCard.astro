@@ -1,10 +1,10 @@
 ---
 /**
- * A project card for the homepage grids.
- *
- * Design borrowed from ncase.me: thumbnail, then a bold title, then the
- * description in a muted gray. The only hover effect is a drop in opacity —
- * no lifting, no sliding, no shadows. Restraint reads as quality.
+ * A horizontal project card for the homepage lists — cover band on the
+ * left, title and pitch to the right, one full-width row per project.
+ * Stacks back to a vertical card on narrow screens. The only hover effect
+ * is a drop in opacity — no lifting, no sliding, no shadows. Restraint
+ * reads as quality.
  */
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
@@ -79,23 +79,26 @@ const statusLabel: Record<string, string> = {
   }
 
   .card a {
-    display: block;
+    display: flex;
+    align-items: center;
     color: inherit;
     text-decoration: none;
   }
 
   .cover {
     display: block;
-    width: 100%;
-    /* Fixed band so every card in the grid lines up, whatever the source
-       image's aspect ratio. object-fit crops rather than distorts. */
+    flex: 0 0 auto;
+    /* Fixed band so every card lines up, whatever the source image's
+       aspect ratio. object-fit crops rather than distorts. */
+    width: clamp(11rem, 40%, 20rem);
     aspect-ratio: 16 / 9;
     object-fit: cover;
     background: var(--accent-soft);
   }
 
   .body {
-    padding: 0.85rem 1rem 1rem;
+    flex: 1;
+    padding: 1rem 1.25rem;
   }
 
   .head {
@@ -130,5 +133,17 @@ const statusLabel: Record<string, string> = {
     content: '·';
     margin-left: 0.75rem;
     color: var(--line);
+  }
+
+  /* Narrow screens: stack back to a vertical card. */
+  @media (max-width: 40rem) {
+    .card a {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .cover {
+      width: 100%;
+    }
   }
 </style>
