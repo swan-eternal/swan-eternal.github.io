@@ -23,7 +23,7 @@ interface Props {
 
 const {
   title,
-  description = 'Jason Swan — engineer, game developer, and tinkerer.',
+  description = 'Swanware — engineer, game developer, and tinkerer.',
   image = '/social-card.png',
   noIndex = false,
 } = Astro.props;
@@ -31,7 +31,7 @@ const {
 // Astro.site comes from astro.config.mjs. Use it so the canonical URL and
 // social tags are absolute — relative ones don't work when the site is
 // shared to Slack or iMessage.
-const siteName = 'Jason Swan';
+const siteName = 'Swanware';
 const pageTitle = title ? `${title} — ${siteName}` : siteName;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
@@ -82,7 +82,8 @@ const rss = new URL('/rss.xml', Astro.site);
 
     <footer class="site-footer">
       <p>
-        Placeholder footer. Put contact links here — email, GitHub, itch.io.
+        <a href="https://github.com/swan-eternal">GitHub</a> ·
+        <a href="https://swanware.itch.io">itch.io</a>
       </p>
     </footer>
   </body>

@@ -139,7 +139,7 @@ site's domain:
 ```
 your-domain.com/                 <- this repo
 your-domain.com/astro-rescue/    <- the astro-rescue repo
-your-domain.com/grid-explorer/   <- the grid-explorer repo
+your-domain.com/powerdemo/       <- the powerdemo repo
 your-domain.com/revelation-space/ <- the revelation-space-map repo
 ```
 

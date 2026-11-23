@@ -5,8 +5,8 @@ import { z } from 'astro/zod';
 /**
  * Two collections, mirroring the two halves of the site:
  *
- *   projects/  -> the "Things you can play" / "Things I've built" grids
- *   blog/      -> the "Things you can read" list
+ *   projects/  -> the "Digital" / "Physical" grids
+ *   blog/      -> the "Writing" list
  *
  * Each collection uses the `glob` loader (reads a folder of Markdown files
  * at build time) plus a Zod schema. The schema is the important part: it
@@ -43,10 +43,10 @@ const projects = defineCollection({
       updatedDate: z.coerce.date().optional(),
 
       // Which grid the project appears in:
-      //   game       -> "Things you can play"
-      //   interactive-> "Things you can play" (data viz, small web apps)
-      //   software   -> "Things I've built"
-      //   physical   -> "Things I've built" (machined parts, rigs, gear)
+      //   game       -> "Digital"
+      //   interactive-> "Digital" (data viz, small web apps)
+      //   software   -> "Digital"
+      //   physical   -> "Physical" (machined parts, rigs, gear)
       kind: z.enum(['game', 'interactive', 'software', 'physical']),
 
       // Where the work stands. Shown as a small badge.

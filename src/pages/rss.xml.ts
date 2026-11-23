@@ -33,7 +33,7 @@ export async function GET({ site }: { site: URL }) {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <atom:link href="${new URL('/rss.xml', site).href}" rel="self" type="application/rss+xml"/>
-    <title>Jason Swan</title>
+    <title>Swanware</title>
     <link>${site.href}</link>
     <description>Notes on games, tools, hardware, and the occasional tangent.</description>
     <language>en-us</language>

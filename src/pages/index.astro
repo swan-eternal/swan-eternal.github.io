@@ -8,9 +8,9 @@
  * this site has things to click or things to read.
  *
  * Sections:
- *   1. "Things you can play"  -> games + interactive apps/vizzes
- *   2. "Things I've built"     -> software + physical projects
- *   3. "Things you can read"  -> recent blog posts
+ *   1. "Digital"  -> games, interactive apps/vizzes, software
+ *   2. "Physical" -> physical projects (machined parts, rigs, gear)
+ *   3. "Writing"  -> recent blog posts
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -20,14 +20,14 @@ import BlogCard from '../components/BlogCard.astro';
 const projects = await getCollection('projects');
 const posts = await getCollection('blog', ({ data }) => !data.draft);
 
-// --- Section 1: playable -------------------------------------------------
-const playable = projects
-  .filter((p) => p.data.kind === 'game' || p.data.kind === 'interactive')
+// --- Section 1: digital ---------------------------------------------------
+const digital = projects
+  .filter((p) => ['game', 'interactive', 'software'].includes(p.data.kind))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// --- Section 2: built -----------------------------------------------------
-const built = projects
-  .filter((p) => p.data.kind === 'software' || p.data.kind === 'physical')
+// --- Section 2: physical --------------------------------------------------
+const physical = projects
+  .filter((p) => p.data.kind === 'physical')
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 // --- Section 3: reading ---------------------------------------------------
@@ -38,20 +38,16 @@ const recentPosts = posts
 
 <BaseLayout
   title="Home"
-  description="Jason Swan — engineer, game developer, and tinkerer. Projects, writing, and interactive experiments."
+  description="Swanware — engineer, game developer, and tinkerer. Projects, writing, and interactive experiments."
 >
-  <h1>Jason Swan</h1>
-  <p class="lede">
-    Engineer by day, game developer and tinkerer by night. This is where the
-    projects live, the writing goes, and the small experiments sit.
-  </p>
+  <h1>Swanware</h1>
 
   {
-    playable.length > 0 && (
+    digital.length > 0 && (
       <>
-        <h2 class="section-title">Things you can play</h2>
+        <h2 class="section-title">Digital</h2>
         <div class="grid">
-          {playable.map((project) => (
+          {digital.map((project) => (
             <ProjectCard project={project} />
           ))}
         </div>
@@ -60,11 +56,11 @@ const recentPosts = posts
   }
 
   {
-    built.length > 0 && (
+    physical.length > 0 && (
       <>
-        <h2 class="section-title">Things I've built</h2>
+        <h2 class="section-title">Physical</h2>
         <div class="grid">
-          {built.map((project) => (
+          {physical.map((project) => (
             <ProjectCard project={project} />
           ))}
         </div>
@@ -75,7 +71,7 @@ const recentPosts = posts
   {
     recentPosts.length > 0 && (
       <>
-        <h2 class="section-title">Things you can read</h2>
+        <h2 class="section-title">Writing</h2>
         <div class="posts">
           {recentPosts.map((post) => (
             <BlogCard post={post} />
