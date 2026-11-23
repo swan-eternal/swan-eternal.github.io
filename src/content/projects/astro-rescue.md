@@ -8,7 +8,7 @@ stats:
   - Godot 4
   - "2026"
   - itch.io
-cover: "./images/astro-rescue.jpg"
+cover: "./images/astro-rescue.png"
 links:
   - label: Play on itch.io
     url: https://swanware.itch.io/astrorescue
