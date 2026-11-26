@@ -56,6 +56,29 @@ const { title, src, height = 420, caption } = Astro.props;
    */
   const frames = document.querySelectorAll<HTMLIFrameElement>('.embed iframe');
 
+  /**
+   * Widgets that know they are embedded add their own "Open full screen"
+   * link (the timewright viewer does, in its top bar). The deployed viewer
+   * build creates that link without a target, so the click navigates the
+   * iframe itself — a no-op that reads as a broken button. Patch it from
+   * the parent so it opens in a new tab. Same-origin only; cross-origin
+   * frames are skipped, same as IS_IN_SIGHT below.
+   */
+  frames.forEach((frame) => {
+    frame.addEventListener('load', () => {
+      try {
+        frame.contentDocument
+          ?.querySelectorAll<HTMLAnchorElement>('a.embed-link')
+          .forEach((link) => {
+            link.target = '_blank';
+            link.rel = 'noopener';
+          });
+      } catch {
+        // Cross-origin frame — nothing we can do, and nothing we need to.
+      }
+    });
+  });
+
   const setVisibility = () => {
     const viewportHeight = window.innerHeight;
 

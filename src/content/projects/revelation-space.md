@@ -1,92 +1,45 @@
 ---
 title: Revelation Space
-description: An interactive map and timeline of Alastair Reynolds' Revelation Space universe — pick a character or a ship and step through two and a half thousand years of it.
+description: An interactive map and timeline of Alastair Reynolds' Revelation Space universe — scrub nearly nine centuries of events, trace a character or a ship, drill from the region chart down to the Glitter Band.
 pubDate: 2026-07-15
 kind: interactive
 status: in-progress
 stats:
-  - Astro
+  - Timewright
   - TypeScript
   - "2026"
 cover: "./images/revelation-space.jpg"
+links:
+  - label: Open the map
+    url: https://swan-eternal.github.io/revelation-space/
+  - label: Built with Timewright
+    url: https://github.com/swan-eternal/timewright
 embeds:
   - title: Revelation Space — interactive map
     src: /revelation-space/
     height: 760
-    caption: Placeholder embed. A real one points at the map's own GitHub Pages repo — same URL, so this line does not change when the real build lands.
+    caption: "Live — 'Open full screen' in the top bar opens the standalone map."
 ---
-
-## The idea
-
-Alastair Reynolds' Revelation Space universe is mostly told through
-characters moving between places. The Glitter Band collapses. The
-Scorpius runs for Aral Vorkosigan and comes back wrong. Ana Khouri walks
-into Chasm City and the century she arrives in turns on itself.
-
-A list of events does not show any of that. What shows it is a **map you
-can move through in time**: pick a character or a ship, and watch where
-they are, year by year, with the places themselves changing state around
-them.
-
-So the map's central idea is that **time is a first-class thing you
-scrub**, not a filter applied afterwards. The Glitter Band does not have
-an event called "collapse" — it has a condition that lasts decades, and
-the chart shades it by whichever condition contains the current year. A
-dot cannot turn from thriving to ruined; a shaded place can.
 
 ## What it is
 
-A static site. No backend, no database, no server — the dataset is baked
-at build time and the whole thing deploys to any static host.
+Twelve maps across three scales: a region chart of the local
+neighbourhood, ten star systems, and Yellowstone as its own map — the
+Glitter Band's habitats ringing the planet, Chasm City on the disc.
+Every event — 37, from 2083 to 2950 — is pinned to a place. 47
+locations, 17 characters and ships.
 
-- **A sky chart** of the local neighbourhood, the ten star systems at
-  their real positions and real distances. Only this one view carries
-  real numbers; everything below it is schematic, because the canon fact
-  is the attachment ("orbiting Yellowstone"), not the distance.
-- **Three scales** — region, star system, planet. Drilling into a system
-  shows its planets on exaggerated orbits, because fitting them on one
-  screen matters more than being right about AU.
-- **A shared timeline** with event ticks, a brush-to-zoom strip over the
-  whole span, and a presence track for the entity being traced.
-- **The beat stepper** — step through a character's life one decisive
-  moment at a time, with the map focusing in place rather than switching
-  scene, so the journey stays on one chart.
+## What you can do to it
 
-## The data is the point
+Scrub the timeline or brush a span. Trace a character or a ship and
+step through the events of its life one at a time — the map focuses
+each one. Drill down follows the story: region → system → planet, and
+the Yellowstone pin opens the Glitter Band.
 
-Every node in the universe is one file under `data/nodes/`, and every
-reference in those files is a **name** rather than an id, resolved at
-build time. The resolver never guesses: an exact name wins only among
-nodes of a plausible kind, and an unknown name is an error with
-suggestions. A misspelled place fails the build instead of quietly
-leaving a hole in a character's life.
+## How it's built
 
-Vessels carry **voyages** as well as presence intervals. A presence says
-where a thing is; a voyage says where it is *going*, and when each end
-happened — which is how a ship that left Sol in 2083 and did not reach
-61 Cygni until the twenty-third century can still be placed on the chart
-for the two centuries in between.
-
-## What I learned
-
-The hard part was never the drawing. It was making the data able to say
-things it should not be able to say.
-
-A character's presence cannot outrun the ship it is aboard. That rule
-catches the mistake that matters most — a passenger riding a vessel that
-wasn't there — but it only works if the rule knows what a voyage is. The
-moment voyages existed, that rule had to learn about them, and every
-check that reasons about "where was it" had to be re-read. A rule that a
-feature silently invalidates is worse than a missing feature, because
-the content you write against it gets rejected for no visible reason.
-
-The other one: **the deployed site has no write path at all.** The author
-tool that writes the data is a local-only app on a loopback address that
-is never built into anything. That is the property that makes the map
-safe to publish — a visitor cannot add an event however they try.
-
-## Source
-
-The plan, the research and the data live in a separate repository. The
-cover image on this page is the map's own chart, rendered by the same
-code the site uses.
+One Timewright world: maps, locations, characters, events as YAML,
+validated and baked to a static site. The system maps generate from a
+spec — real stellar classes, orbits, belts — and regenerate
+byte-identical, so pins never drift. No backend, no database: nothing
+on the live site can be written to.
