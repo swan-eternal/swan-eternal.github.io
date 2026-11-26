@@ -25,8 +25,8 @@
       "name": "107 Piscium",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -41,8 +41,8 @@
       "name": "61 Cygni",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -57,8 +57,8 @@
       "name": "Delta Pavonis",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -73,8 +73,8 @@
       "name": "Epsilon Eridani",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -89,8 +89,8 @@
       "name": "Gliese 687",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -105,8 +105,8 @@
       "name": "Groombridge 1618",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -121,8 +121,8 @@
       "name": "Lacaille 9352",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -152,8 +152,8 @@
       "name": "Ross 248",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -168,8 +168,8 @@
       "name": "Sol",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
@@ -184,14 +184,30 @@
       "name": "Tau Ceti",
       "parent": "region",
       "size": [
-        800,
-        600
+        1600,
+        1200
       ],
       "images": [
         {
           "file": "tau-ceti.svg",
           "caption": "Tau Ceti, schematically.",
           "path": "maps/tau-ceti/tau-ceti.svg"
+        }
+      ]
+    },
+    {
+      "id": "yellowstone",
+      "name": "Yellowstone",
+      "parent": "epsilon-eridani",
+      "size": [
+        1600,
+        1200
+      ],
+      "images": [
+        {
+          "file": "yellowstone.svg",
+          "caption": "Yellowstone and the Glitter Band, schematically.",
+          "path": "maps/yellowstone/yellowstone.svg"
         }
       ]
     }
@@ -233,10 +249,10 @@
       "id": "carousel-new-brazilia",
       "name": "Carousel New Brazilia",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        437,
-        284
+        1297.8,
+        769
       ],
       "stays": [],
       "tags": [
@@ -248,10 +264,10 @@
       "id": "carousel-new-copenhagen",
       "name": "Carousel New Copenhagen",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        433,
-        296
+        700.2,
+        976
       ],
       "stays": [],
       "tags": [
@@ -263,10 +279,10 @@
       "id": "carousel-new-seattle-tacoma",
       "name": "Carousel New Seattle-Tacoma",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        421,
-        305
+        227.6,
+        749.6
       ],
       "stays": [],
       "tags": [
@@ -277,10 +293,10 @@
       "id": "carousel-new-vancouver",
       "name": "Carousel New Vancouver",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        404,
-        310
+        422.8,
+        338.6
       ],
       "stays": [],
       "tags": [
@@ -291,10 +307,10 @@
       "id": "carousel-new-venice",
       "name": "Carousel New Venice",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        387,
-        308
+        1001.2,
+        233
       ],
       "stays": [],
       "tags": [
@@ -302,13 +318,28 @@
       ]
     },
     {
+      "id": "cerberus-hades",
+      "name": "Cerberus-Hades",
+      "aliases": [],
+      "map": "delta-pavonis",
+      "at": [
+        1155.4,
+        889.5
+      ],
+      "stays": [],
+      "tags": [
+        "artifact"
+      ],
+      "card": "Hades, a neutron star orbiting Delta Pavonis as a distant twin, was converted long ago into an\nenormous computer. Cerberus, the artificial planet orbiting it, is its gate; the expedition of\n2567 entered it, and Dan Sylveste remains."
+    },
+    {
       "id": "chasm-city",
       "name": "Chasm City",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        400,
-        268
+        860,
+        556
       ],
       "stays": [],
       "tags": [
@@ -353,8 +384,8 @@
       "aliases": [],
       "map": "sol",
       "at": [
-        400,
-        284
+        1014.4,
+        715
       ],
       "stays": [],
       "tags": [
@@ -384,8 +415,8 @@
       "aliases": [],
       "map": "sol",
       "at": [
-        411,
-        312
+        1208.6,
+        494.6
       ],
       "stays": [],
       "tags": [
@@ -399,8 +430,8 @@
       "aliases": [],
       "map": "lacaille-9352",
       "at": [
-        400,
-        284
+        695,
+        473.3
       ],
       "stays": [],
       "tags": [
@@ -412,10 +443,10 @@
       "id": "ferrisville",
       "name": "Ferrisville",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        411,
-        296
+        1124.3,
+        889.4
       ],
       "stays": [],
       "tags": [
@@ -442,10 +473,10 @@
       "id": "glitter-band",
       "name": "Glitter Band",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        400,
-        284
+        1369.2,
+        670.5
       ],
       "stays": [],
       "tags": [
@@ -473,10 +504,10 @@
       "id": "hospice-idlewild",
       "name": "Hospice Idlewild",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        372,
-        301
+        767.3,
+        229.3
       ],
       "stays": [],
       "tags": [
@@ -488,10 +519,10 @@
       "id": "house-aubusson",
       "name": "House Aubusson",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        364,
-        290
+        891.9,
+        962.3
       ],
       "stays": [],
       "tags": [
@@ -502,10 +533,10 @@
       "id": "house-flammarion",
       "name": "House Flammarion",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        364,
-        278
+        343.7,
+        875.4
       ],
       "stays": [],
       "tags": [
@@ -516,10 +547,10 @@
       "id": "house-perigal",
       "name": "House Perigal",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        372,
-        267
+        270.7,
+        466.6
       ],
       "stays": [],
       "tags": [
@@ -532,8 +563,8 @@
       "aliases": [],
       "map": "lacaille-9352",
       "at": [
-        400,
-        268
+        661.9,
+        462.6
       ],
       "stays": [],
       "tags": [
@@ -561,8 +592,8 @@
       "aliases": [],
       "map": "107-piscium",
       "at": [
-        400,
-        284
+        797.8,
+        452.8
       ],
       "stays": [],
       "tags": [
@@ -573,10 +604,10 @@
       "id": "marcos-eye",
       "name": "Marco's Eye",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        413,
-        274
+        505.8,
+        947.3
       ],
       "stays": [],
       "tags": [
@@ -589,8 +620,8 @@
       "aliases": [],
       "map": "sol",
       "at": [
-        384,
-        299
+        443.8,
+        648
       ],
       "stays": [],
       "tags": [
@@ -603,8 +634,8 @@
       "aliases": [],
       "map": "sol",
       "at": [
-        413,
-        290
+        671.1,
+        684.8
       ],
       "stays": [],
       "tags": [
@@ -618,8 +649,8 @@
       "aliases": [],
       "map": "sol",
       "at": [
-        400,
-        268
+        1040.5,
+        724.5
       ],
       "stays": [],
       "tags": [
@@ -630,10 +661,10 @@
       "id": "panoply",
       "name": "Panoply",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        387,
-        260
+        204.9,
+        612.9
       ],
       "stays": [],
       "tags": [
@@ -647,8 +678,8 @@
       "aliases": [],
       "map": "delta-pavonis",
       "at": [
-        400,
-        284
+        700.5,
+        475.2
       ],
       "stays": [],
       "tags": [
@@ -675,10 +706,10 @@
       "id": "ruskin-sartorious-bubble",
       "name": "Ruskin-Sartorious Bubble",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        404,
-        258
+        603.9,
+        261.7
       ],
       "stays": [],
       "tags": [
@@ -691,8 +722,8 @@
       "aliases": [],
       "map": "sol",
       "at": [
-        400,
-        284
+        1014.4,
+        715
       ],
       "stays": [],
       "tags": [
@@ -705,8 +736,8 @@
       "aliases": [],
       "map": "tau-ceti",
       "at": [
-        400,
-        268
+        1060.2,
+        670
       ],
       "stays": [],
       "tags": [
@@ -720,8 +751,8 @@
       "aliases": [],
       "map": "61-cygni",
       "at": [
-        400,
-        284
+        706.7,
+        474.6
       ],
       "stays": [],
       "tags": [
@@ -749,10 +780,10 @@
       "id": "szlumper-oneill",
       "name": "Szlumper Oneill",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        421,
-        263
+        1323.1,
+        380.3
       ],
       "stays": [],
       "tags": [
@@ -763,10 +794,10 @@
       "id": "tangerine-dream",
       "name": "Tangerine Dream",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        411,
-        312
+        1183.3,
+        284.6
       ],
       "stays": [],
       "tags": [
@@ -794,10 +825,10 @@
       "id": "the-chevelure-sambuke-hourglass",
       "name": "The Chevelure-Sambuke Hourglass",
       "aliases": [],
-      "map": "epsilon-eridani",
+      "map": "yellowstone",
       "at": [
-        433,
-        272
+        1395.9,
+        530.2
       ],
       "stays": [],
       "tags": [
@@ -810,8 +841,8 @@
       "aliases": [],
       "map": "tau-ceti",
       "at": [
-        400,
-        284
+        800,
+        600
       ],
       "stays": [],
       "tags": [
@@ -824,8 +855,8 @@
       "aliases": [],
       "map": "groombridge-1618",
       "at": [
-        400,
-        284
+        823.2,
+        451.5
       ],
       "stays": [],
       "tags": [
@@ -839,9 +870,10 @@
       "aliases": [],
       "map": "epsilon-eridani",
       "at": [
-        400,
-        284
+        814.9,
+        452.2
       ],
+      "opens": "yellowstone",
       "stays": [],
       "tags": [
         "planet"
@@ -985,6 +1017,16 @@
       ]
     },
     {
+      "id": "bernsdottir",
+      "name": "Bernsdottir",
+      "aliases": [],
+      "stays": [],
+      "tags": [
+        "character"
+      ],
+      "bio": "Discovered the first Shroud in 2338, thirty-five years before Lascaille's encounter made them infamous."
+    },
+    {
       "id": "coalition-for-neural-purity",
       "name": "Coalition for Neural Purity",
       "aliases": [],
@@ -1022,6 +1064,48 @@
       "aliases": [],
       "color": "#b0403b",
       "stays": [
+        {
+          "at": "mars",
+          "from": {
+            "raw": "2190",
+            "approx": false,
+            "year": 2190,
+            "startInstant": 2190,
+            "endInstant": 2190.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2205",
+            "approx": false,
+            "year": 2205,
+            "startInstant": 2205,
+            "endInstant": 2205.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "deep-space",
+          "from": {
+            "raw": "2205",
+            "approx": false,
+            "year": 2205,
+            "startInstant": 2205,
+            "endInstant": 2205.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2511",
+            "approx": false,
+            "year": 2511,
+            "startInstant": 2511,
+            "endInstant": 2511.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
         {
           "at": "resurgam",
           "from": {
@@ -1127,6 +1211,27 @@
             "kind": "exact",
             "warnings": []
           }
+        },
+        {
+          "at": "cerberus-hades",
+          "from": {
+            "raw": "2566",
+            "approx": false,
+            "year": 2566,
+            "startInstant": 2566,
+            "endInstant": 2566.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2567",
+            "approx": false,
+            "year": 2567,
+            "startInstant": 2567,
+            "endInstant": 2567.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
         }
       ],
       "tags": [
@@ -1225,11 +1330,11 @@
             "warnings": []
           },
           "until": {
-            "raw": "2415",
+            "raw": "2205",
             "approx": false,
-            "year": 2415,
-            "startInstant": 2415,
-            "endInstant": 2415.9988021902805,
+            "year": 2205,
+            "startInstant": 2205,
+            "endInstant": 2205.9988021902805,
             "kind": "exact",
             "warnings": []
           }
@@ -1237,15 +1342,27 @@
         {
           "at": "deep-space",
           "from": {
-            "raw": "2415",
+            "raw": "2205",
             "approx": false,
-            "year": 2415,
-            "startInstant": 2415,
-            "endInstant": 2415.9988021902805,
+            "year": 2205,
+            "startInstant": 2205,
+            "endInstant": 2205.9988021902805,
             "kind": "exact",
             "warnings": []
           },
           "until": {
+            "raw": "2605",
+            "approx": false,
+            "year": 2605,
+            "startInstant": 2605,
+            "endInstant": 2605.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "resurgam",
+          "from": {
             "raw": "2605",
             "approx": false,
             "year": 2605,
@@ -1369,6 +1486,50 @@
         "organization"
       ],
       "bio": "Post-intelligent machine race from the Dawn War, galaxy-scale in intent. Called wolves by the Conjoiners."
+    },
+    {
+      "id": "irravel-veda",
+      "name": "Irravel Veda",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "deep-space",
+          "from": {
+            "raw": "2673",
+            "approx": false,
+            "year": 2673,
+            "startInstant": 2673,
+            "endInstant": 2673.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2931",
+            "approx": false,
+            "year": 2931,
+            "startInstant": 2931,
+            "endInstant": 2931.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "malora-shadows",
+          "from": {
+            "raw": "2931",
+            "approx": false,
+            "year": 2931,
+            "startInstant": 2931,
+            "endInstant": 2931.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ],
+      "bio": "Pilot of the Galactic North thread. Recloned from herself in 2673, she fought a relativistic vendetta across centuries, and in 2931 met a representative of the Nestbuilder intelligence."
     },
     {
       "id": "nevil-clavain",
@@ -1529,6 +1690,16 @@
       ]
     },
     {
+      "id": "sandra-voi",
+      "name": "Sandra Voi",
+      "aliases": [],
+      "stays": [],
+      "tags": [
+        "character"
+      ],
+      "bio": "Led the first human expedition into Europa's ocean (2161); brokered the ceasefire that ended the Coalition–Conjoiner war (2191)."
+    },
+    {
       "id": "sky-haussmann",
       "name": "Sky Haussmann",
       "aliases": [
@@ -1577,6 +1748,349 @@
   ],
   "events": [
     {
+      "id": "amerikano-era",
+      "title": "Amerikano era — Von Neumann colonies beyond Sol.",
+      "when": {
+        "raw": "2090",
+        "approx": false,
+        "year": 2090,
+        "startInstant": 2090,
+        "endInstant": 2090.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "until": {
+        "raw": "2110",
+        "approx": false,
+        "year": 2110,
+        "startInstant": 2110,
+        "endInstant": 2110.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "deep-space"
+      },
+      "people": [],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 2,
+      "card": "Fertilised human cells seeded extrasolar worlds by robot. Most such colonies collapsed within two or three generations.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "bernsdottir-shroud",
+      "title": "Bernsdottir discovers the first Shroud.",
+      "when": {
+        "raw": "2338",
+        "approx": false,
+        "year": 2338,
+        "startInstant": 2338,
+        "endInstant": 2338.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "shroud"
+      },
+      "people": [
+        "bernsdottir"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 9,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "cerberus-expedition",
+      "title": "Expedition into the Cerberus/Hades artefact; death of Dan Sylveste.",
+      "when": {
+        "raw": "2567",
+        "approx": false,
+        "year": 2567,
+        "startInstant": 2567,
+        "endInstant": 2567.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "cerberus-hades"
+      },
+      "people": [
+        "dan-sylveste",
+        "ilia-volyoova",
+        "ana-khouri"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "catastrophe",
+        "official-timeline"
+      ],
+      "order": 144,
+      "card": "Hades, a neutron star orbiting Delta Pavonis as a distant twin, was converted long ago into an enormous computer. The crew of the Nostalgia for Infinity entered Cerberus, the artificial planet guarding it. Sylveste remained.",
+      "sources": [
+        "official-timeline",
+        "wiki:Hades"
+      ]
+    },
+    {
+      "id": "clavain-defects",
+      "title": "Clavain defects from the Conjoiners.",
+      "when": {
+        "raw": "2615",
+        "approx": false,
+        "year": 2615,
+        "startInstant": 2615,
+        "endInstant": 2615.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "resurgam"
+      },
+      "people": [
+        "nevil-clavain"
+      ],
+      "locations": [],
+      "tags": [
+        "political",
+        "official-timeline"
+      ],
+      "order": 147,
+      "card": "The break that precedes the exploitation of grub technology, including inertia suppression machinery.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "clavain-returns",
+      "title": "Clavain's return from deep space.",
+      "when": {
+        "raw": "2582",
+        "approx": false,
+        "year": 2582,
+        "startInstant": 2582,
+        "endInstant": 2582.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "resurgam"
+      },
+      "people": [
+        "nevil-clavain"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 145,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "clavain-volyova-confrontation",
+      "title": "Confrontation between Clavain and Volyova around Delta Pavonis.",
+      "when": {
+        "raw": "2633",
+        "approx": false,
+        "year": 2633,
+        "startInstant": 2633,
+        "endInstant": 2633.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "resurgam"
+      },
+      "people": [
+        "nevil-clavain",
+        "ilia-volyoova"
+      ],
+      "locations": [],
+      "tags": [
+        "military",
+        "official-timeline"
+      ],
+      "order": 148,
+      "card": "A standoff over the Nostalgia for Infinity and her cache of doomsday weapons; the ship leaves for deep space after.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "coalition-forms",
+      "title": "Great Wall of Mars begins; the Coalition for Neural Purity forms.",
+      "when": {
+        "raw": "2178",
+        "approx": false,
+        "year": 2178,
+        "startInstant": 2178,
+        "endInstant": 2178.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "mars"
+      },
+      "people": [
+        "coalition-for-neural-purity"
+      ],
+      "locations": [],
+      "tags": [
+        "political",
+        "official-timeline"
+      ],
+      "order": 5,
+      "card": "An Earth-based military pact of conservative states, opposed to the neural experimentation the Demarchists tolerated. The first phase of the Great Wall of Mars was completed in 2182.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "conjoiner-demarchist-war",
+      "title": "Conjoiner–Demarchist war around Yellowstone.",
+      "when": {
+        "raw": "2551",
+        "approx": false,
+        "year": 2551,
+        "startInstant": 2551,
+        "endInstant": 2551.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "yellowstone"
+      },
+      "people": [
+        "conjoiners",
+        "demarchists"
+      ],
+      "locations": [],
+      "tags": [
+        "military",
+        "political",
+        "official-timeline"
+      ],
+      "order": 142,
+      "card": "Ended by the Ferrisville Convention.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "conjoiner-escape",
+      "title": "Galiana's Conjoiners escape Mars; first relativistic starship.",
+      "when": {
+        "raw": "2205",
+        "approx": false,
+        "year": 2205,
+        "startInstant": 2205,
+        "endInstant": 2205.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "mars"
+      },
+      "people": [
+        "galiana",
+        "conjoiners"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 8,
+      "card": "Escape from quarantine aboard the first starship launched from Mars orbit. It opens the great interstellar expansion of 2205–2250.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "conjoiner-quarantine",
+      "title": "Conjoiner quarantine.",
+      "when": {
+        "raw": "2191",
+        "approx": false,
+        "year": 2191,
+        "startInstant": 2191,
+        "endInstant": 2191.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "until": {
+        "raw": "2205",
+        "approx": false,
+        "year": 2205,
+        "startInstant": 2205,
+        "endInstant": 2205.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "mars"
+      },
+      "people": [
+        "sandra-voi",
+        "conjoiners",
+        "coalition-for-neural-purity"
+      ],
+      "locations": [],
+      "tags": [
+        "political",
+        "official-timeline"
+      ],
+      "order": 7,
+      "card": "Sandra Voi brokers the ceasefire that ends the Coalition–Conjoiner war; the Conjoiners are quarantined on Mars for fourteen years.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "demarchist-emergence",
+      "title": "Emergence of Demarchist states.",
+      "when": {
+        "raw": "2141",
+        "approx": false,
+        "year": 2141,
+        "startInstant": 2141,
+        "endInstant": 2141.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "earth"
+      },
+      "people": [
+        "demarchists"
+      ],
+      "locations": [],
+      "tags": [
+        "political",
+        "official-timeline"
+      ],
+      "order": 3,
+      "card": "After three decades of turmoil, the Demarchist settlement of the solar system begins; by 2155 their habitats ring Jupiter while the Great freeze closes over Earth.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
       "id": "denizen-uprising",
       "title": "Denizen uprising; fall of the Europan cities.",
       "when": {
@@ -1598,6 +2112,35 @@
         "official-timeline"
       ],
       "order": 10,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "diadem-expedition",
+      "title": "Conjoiner expedition to Diadem; Setterholm's Worms.",
+      "when": {
+        "raw": "2217",
+        "approx": false,
+        "year": 2217,
+        "startInstant": 2217,
+        "endInstant": 2217.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "deep-space"
+      },
+      "people": [
+        "conjoiners"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 9,
+      "card": "Diadem is not charted here. The worms found beneath its ice are the subject of the story Glacial.",
       "sources": [
         "official-timeline"
       ]
@@ -1629,6 +2172,36 @@
       ]
     },
     {
+      "id": "flotilla-departs",
+      "title": "Departure of the Flotilla from Mercury.",
+      "when": {
+        "raw": "2083",
+        "approx": false,
+        "year": 2083,
+        "startInstant": 2083,
+        "endInstant": 2083.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "mercury"
+      },
+      "people": [
+        "sky-haussmann"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 1,
+      "card": "Ceasefire in the system wars. Five generation ships — Santiago, Palestine, Brasilia, Islamabad and Baghdad — leave Mercury for 61 Cygni A at an eighth of lightspeed, arriving no sooner than the twenty-third century.",
+      "sources": [
+        "official-timeline",
+        "wiki:Flotilla"
+      ]
+    },
+    {
       "id": "galiana-clavain-depart",
       "title": "Departure of Galiana and Clavain's expedition into deep space.",
       "when": {
@@ -1654,6 +2227,35 @@
       ],
       "order": 80,
       "card": "Departure point not pinned to a specific body.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "galiana-returns",
+      "title": "Galiana's return from deep space.",
+      "when": {
+        "raw": "2605",
+        "approx": false,
+        "year": 2605,
+        "startInstant": 2605,
+        "endInstant": 2605.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "resurgam"
+      },
+      "people": [
+        "galiana"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 146,
+      "card": "Returned terminally injured, aboard a stolen Conjoiner ship.",
       "sources": [
         "official-timeline"
       ]
@@ -1690,23 +2292,21 @@
       "id": "human-inhibitor-war",
       "title": "Events of the human-Inhibitor war",
       "when": {
-        "raw": "2650..2850",
-        "kind": "range",
+        "raw": "2650",
         "approx": false,
-        "from": {
-          "raw": "2650",
-          "approx": false,
-          "year": 2650,
-          "startInstant": 2650,
-          "endInstant": 2650.9988021902805
-        },
-        "to": {
-          "raw": "2850",
-          "approx": false,
-          "year": 2850,
-          "startInstant": 2850,
-          "endInstant": 2850.9988021902805
-        },
+        "year": 2650,
+        "startInstant": 2650,
+        "endInstant": 2650.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "until": {
+        "raw": "2850",
+        "approx": false,
+        "year": 2850,
+        "startInstant": 2850,
+        "endInstant": 2850.9988021902805,
+        "kind": "exact",
         "warnings": []
       },
       "people": [
@@ -1840,6 +2440,64 @@
       ]
     },
     {
+      "id": "nestbuilder-contact",
+      "title": "Irravel Veda meets a representative of the Nestbuilder intelligence.",
+      "when": {
+        "raw": "2931",
+        "approx": false,
+        "year": 2931,
+        "startInstant": 2931,
+        "endInstant": 2931.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "malora-shadows"
+      },
+      "people": [
+        "irravel-veda"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 155,
+      "card": "The Nestbuilders, the hidden civilisation of this region, have been watching what is coming.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "nfi-eridani-arrival",
+      "title": "Arrival of the Nostalgia for Infinity in the p Eridani system.",
+      "when": {
+        "raw": "2651",
+        "approx": false,
+        "year": 2651,
+        "startInstant": 2651,
+        "endInstant": 2651.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "skys-edge"
+      },
+      "people": [
+        "ilia-volyoova"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 149,
+      "card": "The 61 Cygni system. Survivors of the Resurgam years found refuge on Ararat.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
       "id": "resurgam-expedition",
       "title": "departure of Resurgam expedition.",
       "when": {
@@ -1889,6 +2547,35 @@
         "official-timeline"
       ],
       "order": 30,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "sylveste-abducted",
+      "title": "Abduction of Dan Sylveste from Resurgam.",
+      "when": {
+        "raw": "2566",
+        "approx": false,
+        "year": 2566,
+        "startInstant": 2566,
+        "endInstant": 2566.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "resurgam"
+      },
+      "people": [
+        "dan-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 143,
+      "card": "Taken by the lighthugger Nostalgia for Infinity, under triumvir Sajaki.",
       "sources": [
         "official-timeline"
       ]
@@ -2025,6 +2712,120 @@
       ],
       "order": 40,
       "card": "No location established yet.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "transenlightenment",
+      "title": "Transenlightenment on Mars; the Conjoiners are born.",
+      "when": {
+        "raw": "2190",
+        "approx": false,
+        "year": 2190,
+        "startInstant": 2190,
+        "endInstant": 2190.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "mars"
+      },
+      "people": [
+        "conjoiners"
+      ],
+      "locations": [],
+      "tags": [
+        "political",
+        "military",
+        "official-timeline"
+      ],
+      "order": 6,
+      "card": "Experimenters under the Great Wall initiate the Transenlightenment; the Coalition–Conjoiner war begins at once.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "veda-recloned",
+      "title": "Irravel Veda recloned from herself.",
+      "when": {
+        "raw": "2673",
+        "approx": false,
+        "year": 2673,
+        "startInstant": 2673,
+        "endInstant": 2673.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "deep-space"
+      },
+      "people": [
+        "irravel-veda"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "official-timeline"
+      ],
+      "order": 151,
+      "card": "The Galactic North thread — a pilot restored from her own tissue, resuming a relativistic vendetta against Mirsky.",
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "voi-europa-expedition",
+      "title": "Sandra Voi leads the first expedition into Europa's ocean.",
+      "when": {
+        "raw": "2161",
+        "approx": false,
+        "year": 2161,
+        "startInstant": 2161,
+        "endInstant": 2161.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "europa"
+      },
+      "people": [
+        "sandra-voi"
+      ],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 4,
+      "sources": [
+        "official-timeline"
+      ]
+    },
+    {
+      "id": "voice-of-evening-arrival",
+      "title": "Arrival of the lighthugger Voice of Evening around Turquoise.",
+      "when": {
+        "raw": "2541",
+        "approx": false,
+        "year": 2541,
+        "startInstant": 2541,
+        "endInstant": 2541.9988021902805,
+        "kind": "exact",
+        "warnings": []
+      },
+      "where": {
+        "location": "turquoise"
+      },
+      "people": [],
+      "locations": [],
+      "tags": [
+        "exploration",
+        "official-timeline"
+      ],
+      "order": 141,
+      "card": "A rare visitor to a backwoods world, and its main link to the rest of the volume.",
       "sources": [
         "official-timeline"
       ]
