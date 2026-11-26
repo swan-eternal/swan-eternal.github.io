@@ -9,19 +9,38 @@
   #hint {
     position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
     color: #55648c; font: 12px/1.4 system-ui, sans-serif; letter-spacing: 0.04em;
-    pointer-events: none; transition: opacity 0.6s;
+    pointer-events: none; transition: opacity 0.6s; white-space: nowrap;
   }
+  #hint.err { color: #d08a8a; }
 </style>
-<script type="importmap">
-  { "imports": { "three": "./three.module.js", "three/addons/": "./addons/" } }
-</script>
 </head>
 <body>
-<div id="hint">drag to orbit · scroll to zoom</div>
+<div id="hint">loading model…</div>
+<script>
+  // Classic script: surface failures as visible text instead of a silent dark page.
+  (function () {
+    var hint = document.getElementById('hint');
+    window.__fail = function (msg) {
+      hint.textContent = msg;
+      hint.className = 'err';
+      hint.style.opacity = 1;
+    };
+    window.addEventListener('error', function (e) {
+      window.__fail('error: ' + (e.message || 'a script failed to load'));
+    });
+    window.addEventListener('unhandledrejection', function (e) {
+      var r = e.reason;
+      window.__fail('error: ' + (r && r.message ? r.message : r));
+    });
+    setTimeout(function () {
+      if (!window.__ok) window.__fail('still nothing after 15 s — hard refresh or try another browser');
+    }, 15000);
+  })();
+</script>
 <script type="module">
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import * as THREE from './three.module.js?v=2';
+import { OrbitControls } from './addons/controls/OrbitControls.js?v=2';
+import { GLTFLoader } from './addons/loaders/GLTFLoader.js?v=2';
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -39,10 +58,10 @@ const camera = new THREE.PerspectiveCamera(38, innerWidth / innerHeight, 0.001, 
 // Warm key from the upper right (like the source photos), cool fill, soft ambient.
 scene.add(new THREE.HemisphereLight(0xcfd8ff, 0x2a1e14, 0.9));
 const key = new THREE.DirectionalLight(0xffe8c8, 2.2);
-key.position.set(1, -0.8, 1.4);
+key.position.set(1.2, 1.6, 0.9);
 scene.add(key);
 const fill = new THREE.DirectionalLight(0x8fa3c7, 0.6);
-fill.position.set(-1, 0.8, 0.4);
+fill.position.set(-1.2, 0.5, -0.8);
 scene.add(fill);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -62,7 +81,8 @@ new GLTFLoader().load('./model.glb', (g) => {
 
   const maxDim = Math.max(size.x, size.y, size.z);
   const dist = (maxDim / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)))) * 1.9;
-  camera.position.set(dist * 0.85, -dist * 0.9, dist * 0.6);
+  // Elevated three-quarter view, matching the source photos.
+  camera.position.set(dist * 0.85, dist * 0.6, dist * 0.72);
   camera.near = maxDim / 100;
   camera.far = maxDim * 100;
   camera.updateProjectionMatrix();
@@ -71,11 +91,12 @@ new GLTFLoader().load('./model.glb', (g) => {
   controls.maxDistance = maxDim * 20;
   controls.update();
 
-  setTimeout(() => { document.getElementById('hint').style.opacity = 0; }, 4000);
-}, undefined, (err) => {
+  window.__ok = true;
   const hint = document.getElementById('hint');
-  hint.textContent = 'failed to load model: ' + err;
-  hint.style.opacity = 1;
+  hint.textContent = 'drag to orbit · scroll to zoom';
+  setTimeout(() => { if (!hint.className) hint.style.opacity = 0; }, 4000);
+}, undefined, (err) => {
+  window.__fail('failed to load model: ' + (err && err.message ? err.message : err));
 });
 
 addEventListener('resize', () => {
