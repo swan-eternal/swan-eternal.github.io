@@ -12,8 +12,6 @@ cover: "./images/revelation-space.jpg"
 links:
   - label: Open the map
     url: https://swan-eternal.github.io/revelation-space/
-  - label: Built with Timewright
-    url: https://github.com/swan-eternal/timewright
 embeds:
   - title: Revelation Space — interactive map
     src: /revelation-space/
@@ -21,25 +19,18 @@ embeds:
     caption: "Live — 'Open full screen' in the top bar opens the standalone map."
 ---
 
-## What it is
+## The series
 
-Twelve maps across three scales: a region chart of the local
-neighbourhood, ten star systems, and Yellowstone as its own map — the
-Glitter Band's habitats ringing the planet, Chasm City on the disc.
-Every event — 37, from 2083 to 2950 — is pinned to a place. 47
-locations, 17 characters and ships.
+Alastair Reynolds' Revelation Space series is a sprawling science
+fiction universe of eight novels, plus novellas and short stories.
+Nothing in it breaks the speed of light — humanity spreads to a handful
+of nearby stars, and the crossings take decades. This map shows the
+movements of its characters through centuries of the future.
 
-## What you can do to it
+## About
 
-Scrub the timeline or brush a span. Trace a character or a ship and
-step through the events of its life one at a time — the map focuses
-each one. Drill down follows the story: region → system → planet, and
-the Yellowstone pin opens the Glitter Band.
-
-## How it's built
-
-One Timewright world: maps, locations, characters, events as YAML,
-validated and baked to a static site. The system maps generate from a
-spec — real stellar classes, orbits, belts — and regenerate
-byte-identical, so pins never drift. No backend, no database: nothing
-on the live site can be written to.
+This timeline map is built using
+[Timewright](https://github.com/swan-eternal/timewright), a tool I built
+to turn plain YAML files — maps, locations, people, events — into
+interactive timeline maps. It validates the world and builds a
+self-contained static site that can be published anywhere.
