@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Napkin ring — photo to 3D</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0a0e1c; overflow: hidden; }
+  #hint {
+    position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+    color: #55648c; font: 12px/1.4 system-ui, sans-serif; letter-spacing: 0.04em;
+    pointer-events: none; transition: opacity 0.6s;
+  }
+</style>
+<script type="importmap">
+  { "imports": { "three": "./three.module.js", "three/addons/": "./addons/" } }
+</script>
+</head>
+<body>
+<div id="hint">drag to orbit · scroll to zoom</div>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a0e1c);
+
+const camera = new THREE.PerspectiveCamera(38, innerWidth / innerHeight, 0.001, 10);
+
+// Warm key from the upper right (like the source photos), cool fill, soft ambient.
+scene.add(new THREE.HemisphereLight(0xcfd8ff, 0x2a1e14, 0.9));
+const key = new THREE.DirectionalLight(0xffe8c8, 2.2);
+key.position.set(1, -0.8, 1.4);
+scene.add(key);
+const fill = new THREE.DirectionalLight(0x8fa3c7, 0.6);
+fill.position.set(-1, 0.8, 0.4);
+scene.add(fill);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 1.2;
+
+new GLTFLoader().load('./model.glb', (g) => {
+  const obj = g.scene;
+
+  // Center the model and fit the camera to its bounding box.
+  const box = new THREE.Box3().setFromObject(obj);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+  obj.position.sub(center);
+  scene.add(obj);
+
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const dist = (maxDim / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)))) * 1.9;
+  camera.position.set(dist * 0.85, -dist * 0.9, dist * 0.6);
+  camera.near = maxDim / 100;
+  camera.far = maxDim * 100;
+  camera.updateProjectionMatrix();
+  controls.target.set(0, 0, 0);
+  controls.minDistance = maxDim * 0.6;
+  controls.maxDistance = maxDim * 20;
+  controls.update();
+
+  setTimeout(() => { document.getElementById('hint').style.opacity = 0; }, 4000);
+}, undefined, (err) => {
+  const hint = document.getElementById('hint');
+  hint.textContent = 'failed to load model: ' + err;
+  hint.style.opacity = 1;
+});
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+renderer.setAnimationLoop(() => {
+  controls.update();
+  renderer.render(scene, camera);
+});
+</script>
+</body>
+</html>
