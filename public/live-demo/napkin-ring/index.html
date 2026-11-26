@@ -25,7 +25,7 @@
 </head>
 <body>
 <div id="hint">loading model…</div>
-<a id="dl" href="./napkin-ring-print.stl" download="napkin-ring-print.stl">print-ready STL (35&nbsp;mm)&nbsp;↓</a>
+<a id="dl" href="./napkin-ring-print.stl?v=2" download="napkin-ring-print.stl">print-ready STL (35&nbsp;mm)&nbsp;↓</a>
 <script>
   // Classic script: surface failures as visible text instead of a silent dark page.
   (function () {
@@ -79,7 +79,7 @@ controls.enableDamping = true;
 controls.autoRotate = true;
 controls.autoRotateSpeed = 1.2;
 
-new GLTFLoader().load('./model.glb?v=2', (g) => {
+new GLTFLoader().load('./model.glb?v=3', (g) => {
   const obj = g.scene;
 
   // Center the model and fit the camera to its bounding box.
