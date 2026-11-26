@@ -12,10 +12,20 @@
     pointer-events: none; transition: opacity 0.6s; white-space: nowrap;
   }
   #hint.err { color: #d08a8a; }
+  #dl {
+    position: fixed; top: 12px; right: 14px;
+    color: #8fa3c7; text-decoration: none;
+    font: 12px/1 system-ui, sans-serif; letter-spacing: 0.04em;
+    padding: 6px 12px; border: 1px solid rgba(143, 163, 199, 0.35);
+    border-radius: 999px; background: rgba(10, 14, 28, 0.65);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  #dl:hover { color: #cfd8ff; border-color: rgba(207, 216, 255, 0.6); }
 </style>
 </head>
 <body>
 <div id="hint">loading model…</div>
+<a id="dl" href="./napkin-ring-print.stl" download="napkin-ring-print.stl">print-ready STL (35&nbsp;mm)&nbsp;↓</a>
 <script>
   // Classic script: surface failures as visible text instead of a silent dark page.
   (function () {
