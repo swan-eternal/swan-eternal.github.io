@@ -1,0 +1,137 @@
+---
+/**
+ * Live demo stage.
+ *
+ * This is where live-built webapps get embedded the moment they are
+ * finished. A demo is a self-contained folder at
+ * public/live-demo/<slug>/ containing an index.html (relative asset
+ * references only) and a demo.json. Drop the folder in, push, and the
+ * next build lists it here — no source edits, no page changes.
+ *
+ * demo.json fields:
+ *   title       — required. The demo's heading.
+ *   date        — ISO date string. Newest demo sorts first; undated last.
+ *   description — optional. One muted line under the embed.
+ *   height      — optional. Embed height in px (default 640).
+ */
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EmbedFrame from '../../components/EmbedFrame.astro';
+
+interface DemoMeta {
+  title?: unknown;
+  date?: unknown;
+  description?: unknown;
+  height?: unknown;
+}
+
+interface Demo {
+  slug: string;
+  title: string;
+  date: string;
+  description?: string;
+  height: number;
+}
+
+// Resolved from the project root rather than import.meta.url: during
+// prerender this component runs from a compiled chunk, so import.meta.url
+// points into the build output, not the source tree. astro build and
+// astro dev both run with cwd at the project root.
+const demosRoot = resolve(process.cwd(), 'public', 'live-demo');
+
+const demos: Demo[] = [];
+if (existsSync(demosRoot)) {
+  for (const entry of readdirSync(demosRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const dir = join(demosRoot, entry.name);
+    if (!existsSync(join(dir, 'index.html'))) continue;
+    let meta: DemoMeta = {};
+    const metaPath = join(dir, 'demo.json');
+    if (existsSync(metaPath)) {
+      try {
+        meta = JSON.parse(readFileSync(metaPath, 'utf8')) as DemoMeta;
+      } catch {
+        // Malformed demo.json — fall back to defaults.
+      }
+    }
+    demos.push({
+      slug: entry.name,
+      title:
+        typeof meta.title === 'string' && meta.title.trim() !== ''
+          ? meta.title
+          : entry.name,
+      date: typeof meta.date === 'string' ? meta.date : '',
+      description:
+        typeof meta.description === 'string' && meta.description.trim() !== ''
+          ? meta.description
+          : undefined,
+      height:
+        typeof meta.height === 'number' && meta.height > 0
+          ? Math.round(meta.height)
+          : 640,
+    });
+  }
+}
+
+// Newest first; demos without a date go last.
+demos.sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<BaseLayout
+  title="Live demo"
+  description="Webapps built live, embedded as they land."
+  noIndex={demos.length === 0}
+>
+  <h1>Live demo</h1>
+
+  {demos.length === 0 && <p class="lede">Nothing here yet.</p>}
+
+  {
+    demos.map((demo) => (
+      <section class="demo">
+        <div class="demo-head">
+          <h2>{demo.title}</h2>
+          <a class="standalone" href={`/live-demo/${demo.slug}/`}>
+            Open standalone ↗
+          </a>
+        </div>
+        <EmbedFrame
+          title={demo.title}
+          src={`/live-demo/${demo.slug}/`}
+          height={demo.height}
+        />
+        {demo.description && <p class="muted">{demo.description}</p>}
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .demo {
+    margin: 2.5rem 0 3rem;
+  }
+
+  .demo-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .demo-head h2 {
+    margin: 0;
+  }
+
+  .standalone {
+    font-size: 0.9rem;
+  }
+
+  .muted {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
