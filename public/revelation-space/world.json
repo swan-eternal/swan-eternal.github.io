@@ -865,6 +865,21 @@
       "card": "A backwoods world, little visited by lighthuggers."
     },
     {
+      "id": "surtsey",
+      "name": "Surtsey",
+      "aliases": [],
+      "map": "gliese-687",
+      "at": [
+        847.4,
+        453.1
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "A Pattern Juggler world. Dan Sylveste swam here as a young man, before the Shroud expedition\nmade his name.\nSYSTEM PLACEMENT IS A MODELLING CHOICE: canon does not locate Surtsey; pinned to Gliese\n687's second planet for the map."
+    },
+    {
       "id": "yellowstone",
       "name": "Yellowstone",
       "aliases": [],
@@ -879,6 +894,21 @@
         "planet"
       ],
       "card": "A terrestrial planet, habitable in patches thanks to gases from a deep chasm.\n\n**Condition over time**\n\n- 2350–2510: thriving — Belle Époque\n- 2510–present: degraded — Post-plague"
+    },
+    {
+      "id": "wintersea",
+      "name": "Wintersea",
+      "aliases": [],
+      "map": "ross-248",
+      "at": [
+        896.2,
+        458.7
+      ],
+      "stays": [],
+      "tags": [
+        "planet"
+      ],
+      "card": "A Pattern Juggler world. The Nostalgia for Infinity called here; her second-in-command\nSajaki drowned, and Captain Brannigan secretly overwrote his mind.\nSYSTEM IS A PLACEHOLDER: canon does not locate Wintersea; pinned to Ross 248, a system with\nno other modelled events, pending a canon fix."
     },
     {
       "id": "nostalgia-for-infinity",
@@ -1027,6 +1057,38 @@
       "bio": "Discovered the first Shroud in 2338, thirty-five years before Lascaille's encounter made them infamous."
     },
     {
+      "id": "calvin-sylveste",
+      "name": "Calvin Sylveste",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "chasm-city",
+          "from": {
+            "raw": "2350",
+            "approx": false,
+            "year": 2350,
+            "startInstant": 2350,
+            "endInstant": 2350.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2372",
+            "approx": false,
+            "year": 2372,
+            "startInstant": 2372,
+            "endInstant": 2372.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ],
+      "bio": "Yellowstone magnate of the Sylveste dynasty. Cloned himself and raised the clone as his son,\nDan; commissioned an alpha-level simulation of his mind; then died as one of the Eighty\n(~2372). The son and the simulation both outlived him. Dates approximate."
+    },
+    {
       "id": "coalition-for-neural-purity",
       "name": "Coalition for Neural Purity",
       "aliases": [],
@@ -1136,6 +1198,48 @@
             "year": 2351,
             "startInstant": 2351,
             "endInstant": 2351.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2378",
+            "approx": false,
+            "year": 2378,
+            "startInstant": 2378,
+            "endInstant": 2378.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "surtsey",
+          "from": {
+            "raw": "2378",
+            "approx": false,
+            "year": 2378,
+            "startInstant": 2378,
+            "endInstant": 2378.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          },
+          "until": {
+            "raw": "2382",
+            "approx": false,
+            "year": 2382,
+            "startInstant": 2382,
+            "endInstant": 2382.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        },
+        {
+          "at": "chasm-city",
+          "from": {
+            "raw": "2382",
+            "approx": false,
+            "year": 2382,
+            "startInstant": 2382,
+            "endInstant": 2382.9988021902805,
             "kind": "exact",
             "warnings": []
           },
@@ -1413,18 +1517,18 @@
       "bio": "Charitable medical order in orbit around Yellowstone; they ran the hospices of the Rust Belt."
     },
     {
-      "id": "ilia-volyoova",
+      "id": "ilia-volyova",
       "name": "Ilia Volyova",
       "aliases": [],
       "stays": [
         {
           "at": "nostalgia-for-infinity",
           "from": {
-            "raw": "2620",
+            "raw": "2566",
             "approx": false,
-            "year": 2620,
-            "startInstant": 2620,
-            "endInstant": 2620.9988021902805,
+            "year": 2566,
+            "startInstant": 2566,
+            "endInstant": 2566.9988021902805,
             "kind": "exact",
             "warnings": []
           },
@@ -1474,7 +1578,8 @@
       ],
       "tags": [
         "character"
-      ]
+      ],
+      "bio": "Triumvir of the Nostalgia for Infinity and keeper of its cache of hell-class weapons. Aboard since well before the Resurgam affair; her exact join year is unrecorded."
     },
     {
       "id": "inhibitors",
@@ -1530,6 +1635,29 @@
         "character"
       ],
       "bio": "Pilot of the Galactic North thread. Recloned from herself in 2673, she fought a relativistic vendetta across centuries, and in 2931 met a representative of the Nestbuilder intelligence."
+    },
+    {
+      "id": "john-brannigan",
+      "name": "John Brannigan",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "nostalgia-for-infinity",
+          "from": {
+            "raw": "2500",
+            "approx": false,
+            "year": 2500,
+            "startInstant": 2500,
+            "endInstant": 2500.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ],
+      "bio": "Captain of the Nostalgia for Infinity, later quarantined in a reefersleep tank as the melding\nplague slowly transformed him and merged him with his own ship. At the Juggler world\nWintersea (~2500) he secretly overwrote his drowned second-in-command Sajaki with a copy\nof his mind. Dates approximate."
     },
     {
       "id": "nevil-clavain",
@@ -1659,6 +1787,17 @@
       "bio": "Elite law enforcement of the Demarchist regime; the police force for the Glitter Band."
     },
     {
+      "id": "pattern-jugglers",
+      "name": "Pattern Jugglers",
+      "aliases": [],
+      "color": "#20b2aa",
+      "stays": [],
+      "tags": [
+        "faction"
+      ],
+      "bio": "Aquatic alien minds dissolved across the oceans of many worlds, trading in thoughts and\nmemories. Humans who swim among them risk conjoinment — or worse. Known Juggler worlds\ninclude Surtsey, Turquoise, Wintersea and Ararat."
+    },
+    {
       "id": "philip-lascaille",
       "name": "Philip Lascaille",
       "aliases": [],
@@ -1744,6 +1883,29 @@
         "character"
       ],
       "bio": "Schuyler 'Sky' Haussmann — a 'momio', a sleeper awakened from reefersleep, who sailed on the Santiago. He jettisoned reefersleep caskets so the Santiago would arrive first at Journey's End, and the colonists renamed the planet 'Sky's Edge' as a mockery. Crucified through a stand-in, he slept a century in reefersleep, and became the centre of the Church of Sky cult and its indoctrination virus. He re-emerged as the arms dealer Cahuella, then as 'Tanner Mirabel', then as 'H' — the man who killed and replaced the Mademoiselle, and who drew Nevil Clavain into the Resurgam evacuation. Immortal; his death date is not established. DATES ARE APPROXIMATE: the official timeline fixes the Flotilla's 2083 departure and says it would not arrive before the twenty-third century, so 2300 stands in for the latest possible arrival at Sky's Edge; 2517 is the year Tanner Mirabel reaches Chasm City, by which point the Mirabel/Reivich sequence has played out. He was certainly in Chasm City by 2524, when he recruited Ana Khouri into Shadowplay. The Flotilla years (2083-2300) are not modelled — there is no node for the Santiago."
+    },
+    {
+      "id": "yuuji-sajaki",
+      "name": "Yuuji Sajaki",
+      "aliases": [],
+      "stays": [
+        {
+          "at": "nostalgia-for-infinity",
+          "from": {
+            "raw": "2500",
+            "approx": false,
+            "year": 2500,
+            "startInstant": 2500,
+            "endInstant": 2500.9988021902805,
+            "kind": "exact",
+            "warnings": []
+          }
+        }
+      ],
+      "tags": [
+        "character"
+      ],
+      "bio": "Second-in-command of the Nostalgia for Infinity under Captain Brannigan. Drowned at the\nJuggler world Wintersea (~2500); Brannigan secretly overwrote his mind with a copy of his\nown. As \"Sajaki\" he served as triumvir through the Resurgam affair and commanded the 2566\nabduction of Dan Sylveste."
     }
   ],
   "events": [
@@ -1828,7 +1990,7 @@
       },
       "people": [
         "dan-sylveste",
-        "ilia-volyoova",
+        "ilia-volyova",
         "ana-khouri"
       ],
       "locations": [],
@@ -1918,7 +2080,7 @@
       },
       "people": [
         "nevil-clavain",
-        "ilia-volyoova"
+        "ilia-volyova"
       ],
       "locations": [],
       "tags": [
@@ -2484,7 +2646,7 @@
         "location": "skys-edge"
       },
       "people": [
-        "ilia-volyoova"
+        "ilia-volyova"
       ],
       "locations": [],
       "tags": [
@@ -2581,8 +2743,36 @@
       ]
     },
     {
+      "id": "sylveste-alpha-sim",
+      "title": "Calvin Sylveste commissions an alpha-level simulation of his mind.",
+      "when": {
+        "raw": "~2371",
+        "approx": true,
+        "year": 2371,
+        "startInstant": 2371,
+        "endInstant": 2371.9988021902805,
+        "kind": "approx",
+        "warnings": []
+      },
+      "where": {
+        "location": "chasm-city"
+      },
+      "people": [
+        "calvin-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "personal"
+      ],
+      "order": 39,
+      "card": "A perfect alpha-level copy of Calvin's mind, recorded shortly before he joined the Eighty's\ndestructive upload attempt. The upload failed, as all eighty did; the simulation survived,\npassing to Dan — who ran it on Resurgam two centuries later as he worked to decode the\nAmarantin archive.",
+      "sources": [
+        "revelation-space"
+      ]
+    },
+    {
       "id": "sylveste-born",
-      "title": "Dan Sylveste born in Chasm City, Yellowstone.",
+      "title": "Dan Sylveste born in Chasm City — Calvin's clone, passed off as his son.",
       "when": {
         "raw": "2351",
         "approx": false,
@@ -2596,7 +2786,8 @@
         "location": "chasm-city"
       },
       "people": [
-        "dan-sylveste"
+        "dan-sylveste",
+        "calvin-sylveste"
       ],
       "locations": [],
       "tags": [
@@ -2604,8 +2795,10 @@
         "official-timeline"
       ],
       "order": 20,
+      "card": "Publicly the son and heir of Yellowstone magnate Calvin Sylveste; in truth a clone of Calvin\nhimself, created as his continuation and raised as his natural child. Dan learned the truth\nonly decades later.",
       "sources": [
-        "official-timeline"
+        "official-timeline",
+        "revelation-space"
       ]
     },
     {
@@ -2665,6 +2858,35 @@
       ]
     },
     {
+      "id": "sylveste-jugglers",
+      "title": "Dan Sylveste swims with the Pattern Jugglers at Surtsey.",
+      "when": {
+        "raw": "~2380",
+        "approx": true,
+        "year": 2380,
+        "startInstant": 2380,
+        "endInstant": 2380.9988021902805,
+        "kind": "approx",
+        "warnings": []
+      },
+      "where": {
+        "location": "surtsey"
+      },
+      "people": [
+        "dan-sylveste"
+      ],
+      "locations": [],
+      "tags": [
+        "personal",
+        "exploration"
+      ],
+      "order": 55,
+      "card": "As a young man, before the Shroud expedition made his name, Sylveste travelled to the\nJuggler world Surtsey and entered the water — one of the few humans to swim among the\nPattern Jugglers and come back. The experience marked him, and coloured what he was later\nable to read from alien minds.\nDATE IS APPROXIMATE: placed before the 2405 Shroud departure.",
+      "sources": [
+        "revelation-space"
+      ]
+    },
+    {
       "id": "sylveste-vanishes",
       "title": "Dan Sylveste vanishes from Yellowstone for 30 days.",
       "when": {
@@ -2694,7 +2916,7 @@
     },
     {
       "id": "the-eighty",
-      "title": "the Eighty.",
+      "title": "The Eighty — failed mind uploads on Yellowstone.",
       "when": {
         "raw": "~2372",
         "approx": true,
@@ -2704,16 +2926,23 @@
         "kind": "approx",
         "warnings": []
       },
-      "people": [],
+      "where": {
+        "location": "chasm-city"
+      },
+      "people": [
+        "calvin-sylveste"
+      ],
       "locations": [],
       "tags": [
         "political",
+        "catastrophe",
         "official-timeline"
       ],
       "order": 40,
-      "card": "No location established yet.",
+      "card": "Eighty of Yellowstone's wealthiest paid for the first destructive mind uploads. All eighty\nscanned patterns emerged corrupt, and the originals died in the process. Calvin Sylveste\nwas among them; the alpha-level simulation of his mind, made shortly beforehand, was all\nthat survived.",
       "sources": [
-        "official-timeline"
+        "official-timeline",
+        "revelation-space"
       ]
     },
     {
@@ -2828,6 +3057,35 @@
       "card": "A rare visitor to a backwoods world, and its main link to the rest of the volume.",
       "sources": [
         "official-timeline"
+      ]
+    },
+    {
+      "id": "wintersea-sajaki",
+      "title": "The Nostalgia for Infinity at Wintersea; Brannigan overwrites Sajaki.",
+      "when": {
+        "raw": "~2500",
+        "approx": true,
+        "year": 2500,
+        "startInstant": 2500,
+        "endInstant": 2500.9988021902805,
+        "kind": "approx",
+        "warnings": []
+      },
+      "where": {
+        "location": "wintersea"
+      },
+      "people": [
+        "john-brannigan",
+        "yuuji-sajaki"
+      ],
+      "locations": [],
+      "tags": [
+        "personal"
+      ],
+      "order": 115,
+      "card": "The lighthugger Nostalgia for Infinity called at the Juggler world Wintersea. Yuuji Sajaki,\nsecond-in-command under Captain John Brannigan, drowned in a Juggler swim — and Brannigan,\nalready succumbing to the melding plague, secretly overwrote his mind with a copy of his\nown. From then on \"Sajaki\" was Brannigan's continuation, and it was \"Sajaki\" who commanded\nthe abduction of Dan Sylveste from Resurgam.\nDATE IS APPROXIMATE: the novel fixes no year; the visit must predate the ship's 2520s\nYellowstone stop. The system is a placeholder — see Wintersea.",
+      "sources": [
+        "revelation-space"
       ]
     }
   ]
